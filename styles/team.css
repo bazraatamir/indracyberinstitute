@@ -7,7 +7,7 @@
   --border:rgba(28,34,120,0.11);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;}
 
 /* NAV */
@@ -23,10 +23,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;ali
 .nav-links a:hover,.nav-links a.act{color:var(--navy);}
 .nav-links a.act{border-bottom:1.5px solid var(--gold);padding-bottom:2px;}
 .nav-r{display:flex;align-items:center;gap:14px;}
+.nav-burger{
+  width:42px;height:42px;border-radius:10px;
+  border:1px solid var(--border);background:transparent;
+  display:none;align-items:center;justify-content:center;
+  flex-direction:column;gap:4px;cursor:pointer;color:var(--navy);
+  transition:border-color .2s,background .2s;
+}
+.nav-burger{background:rgba(255,255,255,.65);}
+.nav-burger:hover{border-color:var(--navy);background:rgba(255,255,255,.82);}
+.nav-burger span{width:18px;height:2px;background:currentColor;border-radius:2px;display:block;}
 .nav-search{display:flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:100px;padding:7px 16px;font-size:12px;color:var(--muted);cursor:text;width:152px;transition:border-color .2s;background:transparent;}
 .nav-search:hover{border-color:var(--navy);}
 .nav-cta{background:var(--navy);color:#fff;padding:9px 22px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none;transition:background .2s;}
 .nav-cta:hover{background:var(--navy2);}
+.nav-links-cta{display:none;}
 
 /* PAGE HEADER */
 .page-header{
@@ -349,6 +360,34 @@ footer{background:var(--navy3);border-top:1px solid rgba(255,255,255,.06);paddin
 @media (max-width:900px){
   .nav-links{gap:16px;}
   .nav-links a{font-size:12px;}
+  .nav-burger{display:inline-flex;}
+  .nav-links{
+    position:fixed;
+    inset:0;
+    min-height:100vh;
+    height:100dvh;
+    max-width:100vw;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    gap:14px;
+    padding:88px 16px 24px;
+    background:#1c2278;
+    border-bottom:none;
+    display:flex;
+    opacity:0;
+    transform:translate3d(56px,-56px,0);
+    pointer-events:none;
+    transition:transform .32s ease,opacity .22s ease;
+  }
+  body.nav-open .nav-links{opacity:1;transform:translate3d(0,0,0);pointer-events:auto;}
+  body.nav-open{overflow:hidden;}
+  .nav-links a{color:rgba(255,255,255,.85);font-size:18px;font-weight:500;}
+  .nav-links a:hover,.nav-links a.act{color:#fff;}
+  .nav-links a.act{border-bottom-color:var(--gold);}
+  .nav-r .nav-cta{display:none;}
+  .nav-links-cta{display:block;width:100%;}
+  .nav-links-cta .nav-cta{width:100%;display:flex;justify-content:center;margin-top:6px;background:#fff;color:#1c2278;padding:14px 18px;border-radius:12px;font-size:14px;font-weight:600;}
   .ph-stats{grid-template-columns:1fr;}
   .ph-stat{
     border-right:none;
@@ -358,13 +397,13 @@ footer{background:var(--navy3);border-top:1px solid rgba(255,255,255,.06);paddin
 }
 @media (max-width:720px){
   .nav-search{display:none;}
-  nav{padding:0 16px;}
-  .page-header{padding:88px 16px 40px;}
+  nav{padding:0 12px;}
+  .page-header{padding:88px 12px 40px;}
   .ph-watermark{font-size:min(140px,36vw);right:-40px;}
-  .filter-bar{padding:16px;gap:8px;}
+  .filter-bar{padding:16px 12px;gap:8px;}
   .team-grid{grid-template-columns:1fr;}
   .values-grid{grid-template-columns:1fr;}
-  .join-band{padding:48px 16px;}
+  .join-band{padding:48px 12px;}
   .founder-body{padding:32px 20px;}
   .founder-meta{grid-template-columns:1fr;}
   .founder-quote{font-size:16px;}
@@ -382,4 +421,10 @@ footer{background:var(--navy3);border-top:1px solid rgba(255,255,255,.06);paddin
 }
 @media (max-width:400px){
   .logo-sub{display:none;}
+  nav{padding:0 8px;}
+  .page-header{padding-left:8px;padding-right:8px;}
+  .filter-bar{padding-left:8px;padding-right:8px;}
+  .founder-section,.team-section,.values-section{padding-left:8px;padding-right:8px;}
+  .join-band{padding-left:8px;padding-right:8px;}
+  footer{padding-left:8px;padding-right:8px;}
 }

@@ -15,6 +15,51 @@
     return d.innerHTML;
   }
 
+  function initNavMenu() {
+    const btn = qs(".nav-burger");
+    if (!btn) return;
+
+    const setExpanded = (v) => {
+      btn.setAttribute("aria-expanded", v ? "true" : "false");
+    };
+    const open = () => {
+      document.body.classList.add("nav-open");
+      setExpanded(true);
+    };
+    const close = () => {
+      document.body.classList.remove("nav-open");
+      setExpanded(false);
+    };
+    const toggle = () => {
+      if (document.body.classList.contains("nav-open")) close();
+      else open();
+    };
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggle();
+    });
+
+    qsa(".nav-links a").forEach((a) => {
+      a.addEventListener("click", () => close());
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!document.body.classList.contains("nav-open")) return;
+      if (btn.contains(e.target)) return;
+      const nav = qs("nav");
+      if (nav && nav.contains(e.target)) return;
+      close();
+    });
+
+    // ensure initial state
+    close();
+  }
+
   function contentUrl() {
     const base = (document.body.dataset.contentBase || ".").replace(/\/$/, "");
     return `${base}/data/content.json`;
@@ -36,11 +81,10 @@
       a.classList.toggle("act", i === activeIdx);
     });
 
-    const cta = qs(".nav-cta");
-    if (cta) {
+    qsa(".nav-cta").forEach((cta) => {
       cta.href = fromRoot ? sh.cta.hrefFromRoot : sh.cta.hrefFromPages;
       cta.textContent = sh.cta.label;
-    }
+    });
 
     const search = qs(".nav-search");
     if (search) {
@@ -395,6 +439,7 @@
   }
 
   function run() {
+    initNavMenu();
     const page = document.body.dataset.page || "index";
     fetch(contentUrl())
       .then((r) => {
