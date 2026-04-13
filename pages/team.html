@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Манай баг — Indra Cyber Institute</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/team.css" />
+  </head>
+  <body data-page="team" data-content-base=".." data-nav-active="team">
+    <!-- NAV -->
+    <nav>
+      <a
+        class="nav-logo"
+        href="../index.html#home"
+        aria-label="Indra Cyber Institute — нүүр хуудас">
+        <div class="logo-shield">
+          <img
+            src="../assets/logoo-white-BOSOO.png"
+            alt=""
+            width="140"
+            height="32"
+            decoding="async" />
+        </div>
+        <div class="logo-wm">
+          <div class="logo-main">Indra Cyber Institute</div>
+          <div class="logo-sub">Since 2018</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#home">Нүүр</a></li>
+        <li><a href="programs.html">Сургалт</a></li>
+        <li><a href="team.html" class="act">Баг</a></li>
+      </ul>
+      <div class="nav-r">
+        <div class="nav-search">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8">
+            <circle cx="7" cy="7" r="5" />
+            <path d="M11 11l3 3" />
+          </svg>
+          Хайх...
+        </div>
+        <a class="nav-cta" href="programs.html#contact-form">Зөвөлгөө авах</a>
+      </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="ph-z1">
+        <div class="ph-eyebrow">Манай баг</div>
+        <h1 class="ph-title">МАНАЙ<br /><span>БАГШ</span><br />НАР</h1>
+      </div>
+      <div class="ph-z1">
+        <p class="ph-desc">
+          Indra Cyber Institute-ийн баг нь тухайн салбарт 5+ жил ажилласан, олон
+          улсын туршлагатай мэргэжилтнүүдээс бүрдэнэ. Бид суралцагч бүрийн
+          амжилтыг хувийн амжилт гэж үздэг.
+        </p>
+        <div class="ph-stats">
+          <div class="ph-stat">
+            <div class="ph-stat-n">12<sup>+</sup></div>
+            <div class="ph-stat-l">Нийт багш ажилтан</div>
+          </div>
+          <div class="ph-stat">
+            <div class="ph-stat-n">7<sup>+</sup></div>
+            <div class="ph-stat-l">Дундаж туршлага (жил)</div>
+          </div>
+          <div class="ph-stat">
+            <div class="ph-stat-n">98<sup>%</sup></div>
+            <div class="ph-stat-l">Төгсөгч амжилт</div>
+          </div>
+        </div>
+      </div>
+      <div class="ph-watermark">BAG</div>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <span class="filter-label">Шүүх :</span>
+      <button class="filter-btn active" onclick="filterTeam('all', this)">
+        Бүгд
+      </button>
+      <button class="filter-btn fs" onclick="filterTeam('fs', this)">
+        💻 Fullstack
+      </button>
+      <button class="filter-btn dm" onclick="filterTeam('dm', this)">
+        📈 Digital Marketing
+      </button>
+      <button class="filter-btn gd" onclick="filterTeam('gd', this)">
+        🎨 Graphic Design
+      </button>
+      <button class="filter-btn" onclick="filterTeam('management', this)">
+        🏛 Удирдлага
+      </button>
+    </div>
+
+    <!-- FOUNDER -->
+    <div class="founder-section" id="section-management">
+      <div class="sec-eyebrow">Үүсгэн байгуулагч</div>
+      <div class="sec-title">МАНАЙ УДИРДАГЧ</div>
+
+      <div class="founder-card">
+        <div class="founder-visual">
+          <div class="founder-avatar">Б.И</div>
+          <div class="founder-name-big">Б. ИНДРА</div>
+          <div class="founder-role-wrap">
+            <span class="founder-role-tag">Үүсгэн байгуулагч & CEO</span>
+          </div>
+        </div>
+        <div class="founder-body">
+          <div class="founder-quote">
+            Монголын залуучуудад дижитал ирээдүйн хаалгыг нээх нь миний эрхэм
+            зорилго. Технологи бол хэл шиг — суралцахад хэзээ ч оройтдоггүй.
+          </div>
+          <p class="founder-bio">
+            Б. Индра нь 2018 онд Indra Cyber Institute-ийг үүсгэн байгуулж,
+            Монгол улсад дижитал боловсролыг тэр үеэс эхлэн хөгжүүлж ирсэн.
+            Тэрбээр АНУ-д компьютерийн ухааны чиглэлээр суралцаж, Азийн хэд
+            хэдэн стартапт fullstack хөгжүүлэгчээр ажилласан туршлагатай.
+            ICI-ийг үүсгэн байгуулснаасаа хойш 500 гаруй суралцагчид дижитал
+            мэргэжил олгосон.
+          </p>
+          <div class="founder-meta">
+            <div class="founder-meta-item">
+              <div class="founder-meta-label">Боловсрол</div>
+              <div class="founder-meta-val">CS — Орегоны их сургууль</div>
+            </div>
+            <div class="founder-meta-item">
+              <div class="founder-meta-label">Туршлага</div>
+              <div class="founder-meta-val">10+ жил · Fullstack & Edu</div>
+            </div>
+            <div class="founder-meta-item">
+              <div class="founder-meta-label">Байршил</div>
+              <div class="founder-meta-val">Улаанбаатар, Монгол</div>
+            </div>
+            <div class="founder-meta-item">
+              <div class="founder-meta-label">Мэргэжил</div>
+              <div class="founder-meta-val">Fullstack · EdTech</div>
+            </div>
+          </div>
+          <div class="founder-certs">
+            <span class="cert-chip">React Expert</span>
+            <span class="cert-chip">Node.js</span>
+            <span class="cert-chip">AWS Certified</span>
+            <span class="cert-chip">EdTech Leader</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAM MEMBERS -->
+    <div class="team-section">
+      <div class="sec-eyebrow">Сургагч багш нар</div>
+      <div class="sec-title">БҮЛЭГ БАГШ НАР</div>
+
+      <div class="team-grid" id="team-grid">
+        <!-- FULLSTACK bagsh 1 -->
+        <div class="member-card" data-track="fs">
+          <div class="member-visual">
+            <div class="member-avatar">Д.М</div>
+            <span class="member-track-badge">Fullstack</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">Д. Мөнхбат</div>
+            <div class="member-role">
+              Ахлах Fullstack хөгжүүлэгч bagsh · 7 жил
+            </div>
+            <p class="member-bio">
+              React болон Node.js-ийн гүнзгий мэдлэгтэй, enterprise системүүд
+              хөгжүүлсэн туршлагатай. Манай хөтөлбөрийн curriculum-ийг зохиогч.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Docker</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">7 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="LinkedIn">in</a>
+                <a class="member-link" href="#" title="GitHub">gh</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FULLSTACK bagsh 2 -->
+        <div class="member-card" data-track="fs">
+          <div class="member-visual">
+            <div class="member-avatar">Г.Б</div>
+            <span class="member-track-badge">Fullstack</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">Г. Батзаяа</div>
+            <div class="member-role">Frontend хөгжүүлэгч bagsh · 5 жил</div>
+            <p class="member-bio">
+              UI/UX болон frontend performance-д мэргэшсэн. React, Tailwind
+              болон орчин үеийн web технологиор бодит апп хийж суралцуулна.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">Tailwind</span>
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">GraphQL</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">5 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="LinkedIn">in</a>
+                <a class="member-link" href="#" title="GitHub">gh</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FULLSTACK bagsh 3 -->
+        <div class="member-card" data-track="fs">
+          <div class="member-visual">
+            <div class="member-avatar">О.Т</div>
+            <span class="member-track-badge">Fullstack</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">О. Төгсбаяр</div>
+            <div class="member-role">Backend & DevOps bagsh · 6 жил</div>
+            <p class="member-bio">
+              Node.js, PostgreSQL болон cloud infrastructure-д мэргэшсэн.
+              DevOps, CI/CD болон containerization-ийг практикаар заана.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">CI/CD</span>
+              <span class="skill-tag">Linux</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">6 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="LinkedIn">in</a>
+                <a class="member-link" href="#" title="GitHub">gh</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIGITAL MARKETING bagsh 1 -->
+        <div class="member-card" data-track="dm">
+          <div class="member-visual">
+            <div class="member-avatar">Н.О</div>
+            <span class="member-track-badge">Marketing</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">Н. Отгонбаяр</div>
+            <div class="member-role">Ахлах Digital Marketing bagsh · 8 жил</div>
+            <p class="member-bio">
+              Meta Ads болон Google Ads-аар 50+ кампейн удирдсан туршлагатай
+              маркетер. Performance marketing болон data-driven стратегид
+              мэргэшсэн.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">Meta Ads</span>
+              <span class="skill-tag">Google Ads</span>
+              <span class="skill-tag">SEO</span>
+              <span class="skill-tag">Analytics</span>
+              <span class="skill-tag">Strategy</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">8 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="LinkedIn">in</a>
+                <a class="member-link" href="#" title="Facebook">fb</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIGITAL MARKETING bagsh 2 -->
+        <div class="member-card" data-track="dm">
+          <div class="member-visual">
+            <div class="member-avatar">Х.С</div>
+            <span class="member-track-badge">Marketing</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">Х. Солонго</div>
+            <div class="member-role">SEO & Контент bagsh · 5 жил</div>
+            <p class="member-bio">
+              Органик traffic өсгөх, SEO техник болон агуулгын маркетинг дахь
+              бодит кейс study-тэй. Google Certified маркетер.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">SEO</span>
+              <span class="skill-tag">Content</span>
+              <span class="skill-tag">SEMrush</span>
+              <span class="skill-tag">Keyword Research</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">5 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="LinkedIn">in</a>
+                <a class="member-link" href="#" title="Instagram">ig</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIGITAL MARKETING bagsh 3 -->
+        <div class="member-card" data-track="dm">
+          <div class="member-visual">
+            <div class="member-avatar">Б.Э</div>
+            <span class="member-track-badge">Marketing</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">Б. Энхтуяа</div>
+            <div class="member-role">SMM & Брэнд Стратеги bagsh · 6 жил</div>
+            <p class="member-bio">
+              TikTok, Instagram болон Facebook кампейн менежмент. Монголын 30+
+              брэндийн нийгмийн сүлжээний стратегийг удирдсан туршлагатай.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">TikTok</span>
+              <span class="skill-tag">Instagram</span>
+              <span class="skill-tag">Branding</span>
+              <span class="skill-tag">Video Content</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">6 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="LinkedIn">in</a>
+                <a class="member-link" href="#" title="TikTok">tt</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRAPHIC DESIGN bagsh 1 -->
+        <div class="member-card" data-track="gd">
+          <div class="member-visual">
+            <div class="member-avatar">Э.Н</div>
+            <span class="member-track-badge">Design</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">Э. Нарантуяа</div>
+            <div class="member-role">Ахлах Graphic Design bagsh · 9 жил</div>
+            <p class="member-bio">
+              Монголын тэргүүлэх брэндүүдийн visual identity-г бүтээсэн
+              туршлагатай дизайнер. Adobe Creative Suite болон Figma-д
+              мэргэшсэн.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">Illustrator</span>
+              <span class="skill-tag">Photoshop</span>
+              <span class="skill-tag">Branding</span>
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Typography</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">9 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="Behance">be</a>
+                <a class="member-link" href="#" title="Instagram">ig</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRAPHIC DESIGN bagsh 2 -->
+        <div class="member-card" data-track="gd">
+          <div class="member-visual">
+            <div class="member-avatar">Д.А</div>
+            <span class="member-track-badge">Design</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">Д. Анужин</div>
+            <div class="member-role">UI/UX Designer bagsh · 6 жил</div>
+            <p class="member-bio">
+              Figma болон дизайн систем бүтээхэд мэргэшсэн. Хэрэглэгчийн
+              туршлага, прототип болон user research-ийг практикаар заана.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">UI/UX</span>
+              <span class="skill-tag">Prototype</span>
+              <span class="skill-tag">Design System</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">6 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="Behance">be</a>
+                <a class="member-link" href="#" title="Dribbble">dr</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRAPHIC DESIGN bagsh 3 -->
+        <div class="member-card" data-track="gd">
+          <div class="member-visual">
+            <div class="member-avatar">М.Б</div>
+            <span class="member-track-badge">Design</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">М. Билгүүн</div>
+            <div class="member-role">Motion & Illustration bagsh · 5 жил</div>
+            <p class="member-bio">
+              After Effects animation, motion graphics болон digital
+              illustration-д мэргэшсэн. Олон улсын брэндүүдтэй хамтран ажилласан
+              туршлагатай.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">After Effects</span>
+              <span class="skill-tag">Animation</span>
+              <span class="skill-tag">Illustration</span>
+              <span class="skill-tag">Procreate</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">5 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="Behance">be</a>
+                <a class="member-link" href="#" title="Instagram">ig</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MANAGEMENT -->
+        <div class="member-card" data-track="management">
+          <div class="member-visual">
+            <div class="member-avatar">Т.М</div>
+            <span class="member-track-badge">Удирдлага</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">Т. Мөнхцэцэг</div>
+            <div class="member-role">Сургалтын менежер · 5 жил</div>
+            <p class="member-bio">
+              Сургалтын хөтөлбөр, суралцагчдын дэмжлэг болон ажилд зуучлалын үйл
+              ажиллагааг хариуцна. Боловсролын удирдлагад мэргэшсэн.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">Curriculum Design</span>
+              <span class="skill-tag">Career Support</span>
+              <span class="skill-tag">Mentorship</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">5 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="LinkedIn">in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MANAGEMENT 2 -->
+        <div class="member-card" data-track="management">
+          <div class="member-visual">
+            <div class="member-avatar">Г.О</div>
+            <span class="member-track-badge">Удирдлага</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">Г. Оюунцэцэг</div>
+            <div class="member-role">Ажилд зуучлалын зохицуулагч · 4 жил</div>
+            <p class="member-bio">
+              Монголын IT компаниудтай харилцаа, ажлын байрны мэдэгдэл болон
+              суралцагчдыг ажил олгогчтой холбох ажлыг удирдана.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">HR</span>
+              <span class="skill-tag">Networking</span>
+              <span class="skill-tag">Job Placement</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">4 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="LinkedIn">in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MANAGEMENT 3 -->
+        <div class="member-card" data-track="management">
+          <div class="member-visual">
+            <div class="member-avatar">Б.Н</div>
+            <span class="member-track-badge">Удирдлага</span>
+          </div>
+          <div class="member-body">
+            <div class="member-name">Б. Наранцэцэг</div>
+            <div class="member-role">Маркетинг & Харилцаа · 3 жил</div>
+            <p class="member-bio">
+              ICI-ийн нийгмийн сүлжээний контент, PR болон суралцагчдыг татах
+              маркетингийн стратегийг хариуцна.
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">Social Media</span>
+              <span class="skill-tag">PR</span>
+              <span class="skill-tag">Content</span>
+            </div>
+            <div class="member-footer">
+              <span class="member-exp">3 жилийн туршлага</span>
+              <div class="member-links">
+                <a class="member-link" href="#" title="LinkedIn">in</a>
+                <a class="member-link" href="#" title="Instagram">ig</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALUES -->
+    <div class="values-section">
+      <div class="sec-eyebrow">Бидний үнэт зүйлс</div>
+      <div class="sec-title">БИД ЯАГААД ЭНД<br />АЖИЛЛАДАГ ВЭ</div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <div class="value-title">ЗОРИЛГОТОЙ</div>
+          <div class="value-desc">
+            Суралцагч бүрийн карьерын зорилгод хүрэхэд туслах нь бидний гол
+            үүрэг.
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">💡</div>
+          <div class="value-title">ИННОВАТИВ</div>
+          <div class="value-desc">
+            Технологи хурдтай өөрчлөгддөг. Бид хөтөлбөрөө тогтмол шинэчилж,
+            орчин үеийн арга зүйг нэвтрүүлдэг.
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <div class="value-title">ХАМТДАА</div>
+          <div class="value-desc">
+            Classroom-аас гадна community бүтээдэг. Манай төгсөгчид нэг нэгэндээ
+            туслах сүлжээг бүрдүүлдэг.
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">⚡</div>
+          <div class="value-title">ПРАКТИК</div>
+          <div class="value-desc">
+            Онолоос илүү практик. Суралцагч бүр бодит project хийж, бодит ажлын
+            байрт бэлтгэгддэг.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOIN BAND -->
+    <div class="join-band">
+      <div>
+        <div class="join-eyebrow">Бидэнтэй нэгдэх</div>
+        <h2 class="join-title">МАНАЙ БАГТ<br />НЭГДЭХ ҮҮ?</h2>
+        <p class="join-desc">
+          Бид дижитал боловсролын салбарт хамт ажиллах мэргэжилтэн хайж байна.
+          Хэрвээ таны мэдлэг болон хүсэл тааралдвал — нэгдэхийг урьж байна.
+        </p>
+      </div>
+      <div class="join-right">
+        <div class="join-card">
+          <div class="join-card-icon">💻</div>
+          <div>
+            <div class="join-card-title">Fullstack хөгжүүлэгч bagsh</div>
+            <div class="join-card-desc">
+              React, Node.js туршлагатай · Бүтэн цаг эсвэл хагас цаг
+            </div>
+          </div>
+          <div class="join-card-arrow">→</div>
+        </div>
+        <div class="join-card">
+          <div class="join-card-icon">📈</div>
+          <div>
+            <div class="join-card-title">Digital Marketing мэргэжилтэн</div>
+            <div class="join-card-desc">
+              Meta Ads, SEO туршлагатай · Сургалтын хэлбэрээр
+            </div>
+          </div>
+          <div class="join-card-arrow">→</div>
+        </div>
+        <div class="join-card">
+          <div class="join-card-icon">🎨</div>
+          <div>
+            <div class="join-card-title">Дизайны мэргэжилтэн</div>
+            <div class="join-card-desc">
+              Figma, Adobe Suite туршлагатай · Portfolio шаардлагатай
+            </div>
+          </div>
+          <div class="join-card-arrow">→</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="ft-brand">
+        <div class="ft-mark">ICI</div>
+        <div class="ft-nm">Indra Cyber Institute · Since 2018</div>
+      </div>
+      <div class="ft-copy">
+        © 2025 Indra Cyber Institute — Бүх эрх хуулиар хамгаалагдсан
+      </div>
+      <a class="ft-home-link" href="../index.html#home">← Нүүр хуудас</a>
+    </footer>
+
+    <script src="../js/render-content.js" defer></script>
+    <script>
+      function filterTeam(track, btn) {
+        // update button states
+        document
+          .querySelectorAll(".filter-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // show/hide cards
+        document.querySelectorAll(".member-card").forEach((card) => {
+          if (track === "all" || card.dataset.track === track) {
+            card.classList.remove("hidden");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+
+        // show/hide founder block
+        const founderSection = document.getElementById("section-management");
+        founderSection.style.display =
+          track === "all" || track === "management" ? "block" : "none";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,292 @@
+{
+  "shared": {
+    "brand": {
+      "name": "Indra Cyber Institute",
+      "since": "Since 2018",
+      "logoSrc": "assets/logoo-white-BOSOO.png",
+      "logoAria": "Indra Cyber Institute — нүүр хуудас"
+    },
+    "navFromRoot": [
+      {"label": "Нүүр", "href": "./index.html#home", "active": false},
+      {"label": "Сургалт", "href": "./pages/programs.html", "active": false},
+      {"label": "Баг", "href": "./pages/team.html", "active": false}
+    ],
+    "navFromPages": [
+      {"label": "Нүүр", "href": "../index.html#home", "active": false},
+      {"label": "Сургалт", "href": "programs.html", "active": false},
+      {"label": "Баг", "href": "team.html", "active": false}
+    ],
+    "searchPlaceholder": "Хайх...",
+    "cta": {
+      "label": "Зөвөлгөө авах",
+      "hrefFromRoot": "./pages/programs.html#contact-form",
+      "hrefFromPages": "programs.html#contact-form"
+    },
+    "footerBrand": {
+      "mark": "ICI",
+      "name": "INDRA CYBER INSTITUTE",
+      "tagline": "Монголын дижитал мэргэжлүүдийн тэргүүлэх сургалтын төв. Fullstack · Marketing · Design."
+    },
+    "footerCopy": {
+      "prefix": "© 2026 ",
+      "brandGold": "Indra Cyber Institute",
+      "suffix": " — Бүх эрх хуулиар хамгаалагдсан"
+    },
+    "legal": {
+      "privacy": "Нууцлалын бодлого",
+      "terms": "Үйлчилгээний нөхцөл"
+    }
+  },
+  "index": {
+    "meta": {
+      "title": "Indra Cyber Institute"
+    },
+    "hero": {
+      "badgeRing": "DIGITAL SKILLS · CREATIVE FUTURE · ICI ·",
+      "badgeLine1": "SINCE",
+      "badgeLine2": "2018",
+      "hl1": "ДИЖИТАЛ",
+      "hl2": "МЭРГЭЖИЛ",
+      "hl3": "ОЛГОДОГ",
+      "desc": "Fullstack хөгжүүлэлт, Digital маркетинг, Graphic дизайн — 3 чиглэлээр мэргэжлийн карьераа эхлүүл. Практик сургалт, portfolio бүтээх, ажилд зуучлалын дэмжлэг.",
+      "btnPrimary": "Сургалтууд харах",
+      "btnSecondary": "Дэлгэрэнгүй",
+      "stats": [
+        {"num": "500", "numSuffix": "+", "label": "Нийт төгсөгч"},
+        {"num": "3", "numSuffix": "", "label": "Мэргэжлийн чиглэл"},
+        {"num": "7", "numSuffix": "+", "label": "Жилийн туршлага"},
+        {"num": "98", "numSuffix": "%", "label": "Ажилд орсон"}
+      ],
+      "placeholderIcon": "🎓",
+      "imgChip": "Since 2018 · Улаанбаатар",
+      "imgBadgeTop": "500+",
+      "imgBadgeBot": "Нийт төгсөгч"
+    },
+    "programs": {
+      "eyebrow": "Сургалтын хөтөлбөр",
+      "titleHtml": "3 МЭРГЭЖЛИЙН<br />ЧИГЛЭЛ",
+      "sub": "Практик суурьтай, portfolio-д тулгуурласан, ажил мэргэжлийн дэмжлэгтэй сургалтууд",
+      "cards": [
+        {
+          "class": "fs",
+          "emoji": "./assets/3dicons-computer-front-color.png",
+          "num": "01",
+          "tag": "Fullstack Development",
+          "titleHtml": "FULLSTACK<br />DEVELOPER",
+          "desc": "Frontend-аас backend хүртэл бүтэн stack эзэмшиж, бодит веб апп хөгжүүлнэ. React, Node.js, database болон REST API практикаар суралцана.",
+          "pills": [
+            "HTML/CSS",
+            "JavaScript",
+            "React",
+            "Node.js",
+            "PostgreSQL",
+            "Git"
+          ],
+          "dur": "9 САР",
+          "durSub": "Хагас бүтэн цагийн"
+        },
+        {
+          "class": "dm",
+          "emoji": "./assets/3dicons-megaphone-iso-color.png",
+          "num": "02",
+          "tag": "Digital Marketing",
+          "titleHtml": "DIGITAL<br />MARKETING",
+          "desc": "Брэнд бүтээх, онлайн сурталчилгаа, SEO болон дата шинжилгээгээр дижитал маркетингийн мэргэжилтэн болно.",
+          "pills": [
+            "SEO/SEM",
+            "Meta Ads",
+            "Google Ads",
+            "Content",
+            "Analytics",
+            "Strategy"
+          ],
+          "dur": "9 САР",
+          "durSub": "Уян хатан цагийн"
+        },
+        {
+          "class": "gd",
+          "emoji": "./assets/3dicons-pencil-dynamic-color.png",
+          "num": "03",
+          "tag": "Graphic Design",
+          "titleHtml": "GRAPHIC<br />DESIGN",
+          "desc": "Визуал дизайны суурь зарчим, брэндинг, UI/UX болон Adobe & Figma хэрэгслээр мэргэжлийн portfolio бүтээнэ.",
+          "pills": [
+            "Figma",
+            "Illustrator",
+            "Photoshop",
+            "Брэндинг",
+            "UI/UX",
+            "Typography"
+          ],
+          "dur": "9 САР",
+          "durSub": "Практик суурьтай"
+        }
+      ]
+    },
+    "about": {
+      "eyebrow": "Бидний тухай",
+      "titleHtml": "2018 ОНООС ХОЙШ<br />ДИЖИТАЛ ИРЭЭДҮЙГ<br />БЭЛТГЭДЭГ",
+      "emoji": "🏛️",
+      "floatNum": "500+",
+      "floatSub": "Нийт төгсөгч",
+      "paragraphs": [
+        "Indra Cyber Institute нь 2018 онд үүсгэн байгуулагдсан бөгөөд Монгол улсад дижитал мэргэжлүүдийн чиглэлээр — Fullstack хөгжүүлэлт, Digital маркетинг, Graphic дизайн — өндөр чанарын сургалт явуулдаг.",
+        "Манай сургалт нь онолоос илүүтэйгээр практикт анхаарна. Суралцагч бүр бодит portfolio бүтээж, ажил олгогчтой холбогдох боломжтой."
+      ],
+      "bullets": [
+        "Мэргэжлийн багш нар — 5+ жилийн туршлагатай",
+        "Portfolio-д суурилсан сургалтын арга зүй",
+        "Онлайн болон танхимын хосолсон хэлбэр",
+        "Ажилд зуучлалын дэмжлэг — 98% амжилттай"
+      ]
+    },
+    "why": {
+      "eyebrow": "Яагаад бидэн дээр",
+      "titleHtml": "БИД ЮУГААРАА<br />ЯЛГАРАХ ВЭ",
+      "rows": [
+        {
+          "n": "01",
+          "h": "Практик суурьтай сургалт",
+          "p": "Онол биш практик. Суралцагч бүр бодит project хийж, portfolio бүтээнэ. Ажил олгогч таны ажлыг шууд харах боломжтой."
+        },
+        {
+          "n": "02",
+          "h": "Мэргэжлийн багш нар",
+          "p": "Манай бүх багш нар тухайн салбарт 5+ жил ажилласан мэргэжилтнүүд. Classroom-аас гадна 1:1 mentorship хийнэ."
+        },
+        {
+          "n": "03",
+          "h": "Уян хатан цагийн хуваарь",
+          "p": "Өдрийн болон оройн анги, онлайн болон танхим. Таны амьдралын хэвшилд тохирсон хуваарь."
+        },
+        {
+          "n": "04",
+          "h": "Ажилд зуучлалын дэмжлэг",
+          "p": "Монголын тэргүүлэх компаниудтай түншилсэн. Төгсөгчдийн 98% нь 3 сарын дотор ажлын байр эзэлдэг."
+        }
+      ],
+      "tracks": [
+        {
+          "class": "fs",
+          "icon": "./assets/3dicons-computer-front-color.png",
+          "name": "Fullstack Developer",
+          "skills": "React · Node.js · PostgreSQL",
+          "dur": "6 САР"
+        },
+        {
+          "class": "dm",
+          "icon": "./assets/3dicons-megaphone-iso-color.png",
+          "name": "Digital Marketing",
+          "skills": "SEO · Meta Ads · Analytics",
+          "dur": "4 САР"
+        },
+        {
+          "class": "gd",
+          "icon": "./assets/3dicons-pencil-dynamic-color.png",
+          "name": "Graphic Design",
+          "skills": "Figma · Illustrator · Branding",
+          "dur": "5 САР"
+        }
+      ],
+      "testimonial": {
+        "text": "Indra Cyber Institute-д суралцсаны дараа 2 сарын дотор frontend developer болж ажилд орлоо.",
+        "avatar": "Б",
+        "name": "Б. Ганзориг",
+        "role": "Fullstack Developer · 2024 оны төгсөгч"
+      }
+    },
+    "team": {
+      "eyebrow": "Манай баг",
+      "titleHtml": "МЭРГЭЖЛИЙН<br />СУРГАГЧ БАГШ НАР",
+      "members": [
+        {
+          "initials": "Б.И",
+          "avClass": "",
+          "name": "Б. Индра",
+          "role": "Үүсгэн байгуулагч & CEO",
+          "pills": ["Fullstack", "Strategy"]
+        },
+        {
+          "initials": "Д.М",
+          "avClass": "tc-av--blue",
+          "name": "Д. Мөнхбат",
+          "role": "Ахлах хөгжүүлэгч багш",
+          "pills": ["React", "Node.js"]
+        },
+        {
+          "initials": "Н.О",
+          "avClass": "tc-av--gold",
+          "name": "Н. Отгонбаяр",
+          "role": "Digital Marketing багш",
+          "pills": ["Meta Ads", "SEO"]
+        },
+        {
+          "initials": "Э.Н",
+          "avClass": "tc-av--purple",
+          "name": "Э. Нарантуяа",
+          "role": "Graphic Design багш",
+          "pills": ["Figma", "Branding"]
+        }
+      ]
+    },
+    "contact": {
+      "labels": {
+        "name": "Таны нэр",
+        "email": "И-мэйл",
+        "phone": "Утас",
+        "course": "Сургалт",
+        "message": "Асуулт"
+      },
+      "placeholders": {
+        "name": "Таны нэр",
+        "email": "example@mail.com",
+        "phone": "+976 _ _ _ _ _ _ _ _",
+        "course": "Fullstack, Digital Marketing, Graphic Design...",
+        "message": "Таны асуулт..."
+      },
+      "submit": "Илгээх →",
+      "sideTitle": "БИДЭНТЭЙ ХОЛБОГДООРОЙ",
+      "sideSub": "Та аль ч цагт асуулт тавих боломжтой. Манай баг 24 цагийн дотор хариу өгнө.",
+      "addressLabel": "Хаяг",
+      "address": "Улаанбаатар хот, Сүхбаатар дүүрэг",
+      "phoneLabel": "Утас",
+      "phone": "+976 _ _ _ _ _ _ _ _",
+      "emailLabel": "И-мэйл",
+      "email": "info@indracyber.mn",
+      "socialLabel": "Нийгмийн сүлжээ",
+      "social": [
+        {"label": "Facebook", "href": "#"},
+        {"label": "Instagram", "href": "#"},
+        {"label": "LinkedIn", "href": "#"}
+      ]
+    },
+    "footer": {
+      "colCourses": "Сургалт",
+      "courseLinks": [
+        {"label": "Fullstack Developer", "href": "./pages/programs.html"},
+        {"label": "Digital Marketing", "href": "./pages/programs.html"},
+        {"label": "Graphic Design", "href": "./pages/programs.html"}
+      ],
+      "colCompany": "Компани",
+      "companyLinks": [
+        {"label": "Бидний тухай", "href": "#about"},
+        {"label": "Баг", "href": "./pages/team.html"},
+        {"label": "Мэдээ", "href": "#"},
+        {"label": "Ажлын байр", "href": "#"}
+      ],
+      "colContact": "Холбоо",
+      "contactLinks": [
+        {"label": "Холбоо барих", "href": "#contact"},
+        {"label": "Facebook", "href": "#", "rel": "noopener noreferrer"},
+        {"label": "Instagram", "href": "#", "rel": "noopener noreferrer"},
+        {"label": "LinkedIn", "href": "#", "rel": "noopener noreferrer"}
+      ]
+    }
+  },
+  "programsPage": {
+    "metaTitle": "Сургалтын чиглэлүүд — Indra Cyber Institute"
+  },
+  "teamPage": {
+    "metaTitle": "Манай баг — Indra Cyber Institute"
+  }
+}
