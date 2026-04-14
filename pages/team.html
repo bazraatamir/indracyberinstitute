@@ -63,25 +63,29 @@
         align-items: center;
         gap: 10px;
         text-decoration: none;
+        flex-shrink: 0;
       }
       .logo-icon {
-        width: 34px;
-        height: 34px;
-        background: var(--navy);
-        border-radius: 8px;
+        width: 120px;
+        height: 120px;
+
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
       }
-      .logo-icon svg {
-        width: 20px;
-        height: 20px;
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
       }
       .logo-name {
         font-weight: 500;
         font-size: 13px;
         color: var(--accent);
         display: block;
+        white-space: nowrap;
       }
       .logo-since {
         font-family: "JetBrains Mono", monospace;
@@ -100,6 +104,7 @@
         color: var(--muted);
         text-decoration: none;
         transition: color 0.2s;
+        white-space: nowrap;
       }
       .nav-links a:hover,
       .nav-links a.active {
@@ -109,6 +114,76 @@
         border-bottom: 1.5px solid var(--blue-light);
         padding-bottom: 2px;
       }
+
+      /* Hamburger */
+      .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+        background: none;
+        border: none;
+        z-index: 300;
+      }
+      .nav-hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--accent);
+        border-radius: 2px;
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+      }
+      .nav-hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .nav-hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* Mobile drawer */
+      .nav-drawer {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(11, 13, 31, 0.98);
+        backdrop-filter: blur(24px);
+        border-bottom: 1px solid var(--border);
+        padding: 20px 24px 28px;
+        z-index: 199;
+        flex-direction: column;
+        gap: 0;
+      }
+      .nav-drawer.open {
+        display: flex;
+      }
+      .nav-drawer li {
+        list-style: none;
+      }
+      .nav-drawer li a {
+        display: block;
+        padding: 14px 0;
+        font-size: 15px;
+        color: var(--muted);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border);
+        transition: color 0.2s;
+      }
+      .nav-drawer li:last-child a {
+        border-bottom: none;
+      }
+      .nav-drawer li a.active,
+      .nav-drawer li a:hover {
+        color: var(--accent);
+      }
+
       .btn-pri {
         background: var(--blue);
         color: #fff;
@@ -126,6 +201,7 @@
         align-items: center;
         gap: 8px;
         text-decoration: none;
+        white-space: nowrap;
       }
       .btn-pri:hover {
         background: var(--navy);
@@ -161,7 +237,7 @@
       }
       .sec-title {
         font-family: "Bebas Neue", sans-serif;
-        font-size: clamp(36px, 4.5vw, 56px);
+        font-size: clamp(32px, 4.5vw, 56px);
         line-height: 0.92;
         color: var(--accent);
         margin-bottom: 20px;
@@ -215,7 +291,7 @@
       }
       .hero-hl {
         font-family: "Bebas Neue", sans-serif;
-        font-size: clamp(56px, 7vw, 96px);
+        font-size: clamp(44px, 7vw, 96px);
         line-height: 0.91;
         color: var(--accent);
         margin-bottom: 18px;
@@ -255,7 +331,7 @@
 
       /* ── FILTER BAR ── */
       .filter-bar {
-        padding: 24px 56px;
+        padding: 18px 56px;
         background: var(--bg);
         border-top: 1px solid var(--border);
         border-bottom: 1px solid var(--border);
@@ -269,7 +345,7 @@
         margin: 0 auto;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         flex-wrap: wrap;
       }
       .filter-btn {
@@ -284,6 +360,7 @@
         color: var(--muted);
         cursor: pointer;
         transition: all 0.2s;
+        white-space: nowrap;
       }
       .filter-btn:hover {
         border-color: var(--border-hover);
@@ -298,7 +375,7 @@
         width: 1px;
         height: 20px;
         background: var(--border);
-        margin: 0 6px;
+        margin: 0 4px;
       }
       .search-pill {
         border: 1px solid var(--border);
@@ -455,6 +532,8 @@
         justify-content: space-between;
         padding-top: 16px;
         border-top: 1px solid var(--border);
+        gap: 12px;
+        flex-wrap: wrap;
       }
       .lead-contact {
         font-weight: 300;
@@ -501,6 +580,8 @@
         justify-content: space-between;
         align-items: flex-end;
         margin-bottom: 48px;
+        gap: 16px;
+        flex-wrap: wrap;
       }
       .staff-count {
         font-family: "JetBrains Mono", monospace;
@@ -728,7 +809,7 @@
       }
       .join-title {
         font-family: "Bebas Neue", sans-serif;
-        font-size: clamp(36px, 4vw, 52px);
+        font-size: clamp(32px, 4vw, 52px);
         color: var(--accent);
         line-height: 0.92;
         margin-bottom: 12px;
@@ -756,6 +837,7 @@
         border: none;
         cursor: pointer;
         transition: background 0.2s;
+        white-space: nowrap;
       }
       .btn-white:hover {
         background: var(--navy);
@@ -770,6 +852,7 @@
         font-size: 13px;
         cursor: pointer;
         transition: border-color 0.2s;
+        white-space: nowrap;
       }
       .btn-outline-w:hover {
         border-color: var(--border-hover);
@@ -787,6 +870,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
       }
       .footer-brand {
         font-family: "Bebas Neue", sans-serif;
@@ -817,6 +902,289 @@
         opacity: 1;
         transform: none;
       }
+
+      /* ════════════════════════════════════════
+         RESPONSIVE — Tablet  ≤ 1024px
+         ════════════════════════════════════════ */
+      @media (max-width: 1024px) {
+        nav {
+          padding: 0 32px;
+          gap: 16px;
+        }
+        .nav-links {
+          gap: 20px;
+        }
+        .nav-links a {
+          font-size: 12px;
+        }
+
+        #hero {
+          padding: 120px 32px 64px;
+        }
+        .sec {
+          padding: 72px 32px;
+        }
+        #join {
+          padding: 56px 32px;
+        }
+        footer {
+          padding: 32px 32px 24px;
+        }
+        .filter-bar {
+          padding: 16px 32px;
+        }
+
+        .lead-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .dept-strip {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .staff-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* ════════════════════════════════════════
+         RESPONSIVE — Large Mobile  ≤ 768px
+         ════════════════════════════════════════ */
+      @media (max-width: 768px) {
+        /* Nav */
+        nav {
+          padding: 0 20px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .btn-pri.nav-cta {
+          display: none;
+        }
+        .nav-hamburger {
+          display: flex;
+        }
+
+        /* Hero */
+        #hero {
+          min-height: auto;
+          padding: 100px 20px 56px;
+        }
+        .hero-wm {
+          font-size: 160px;
+          right: -20px;
+          bottom: -20px;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .hero-count-box {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 18px 24px;
+          justify-content: flex-start;
+          width: fit-content;
+        }
+        .hc-n {
+          font-size: 40px;
+        }
+        .hero-sub {
+          font-size: 14px;
+        }
+
+        /* Filter bar */
+        .filter-bar {
+          padding: 12px 20px;
+          top: 64px;
+        }
+        .filter-inner {
+          gap: 6px;
+          overflow-x: auto;
+          flex-wrap: nowrap;
+          -webkit-overflow-scrolling: touch;
+          padding-bottom: 4px;
+          scrollbar-width: none;
+        }
+        .filter-inner::-webkit-scrollbar {
+          display: none;
+        }
+        .filter-sep {
+          display: none;
+        }
+        .search-pill {
+          display: none; /* moves to below filters on mobile */
+        }
+
+        /* Sections */
+        .sec {
+          padding: 56px 20px;
+        }
+        .sec-title {
+          font-size: clamp(30px, 8vw, 44px);
+        }
+
+        /* Leadership */
+        .lead-grid {
+          grid-template-columns: 1fr;
+          margin-top: 36px;
+        }
+        .lead-visual {
+          height: 160px;
+        }
+        .lead-body {
+          padding: 20px 20px 22px;
+        }
+
+        /* Dept strip */
+        .dept-strip {
+          grid-template-columns: repeat(2, 1fr);
+          margin-top: 36px;
+          gap: 10px;
+        }
+        .dept-box {
+          padding: 18px 14px;
+        }
+        .dept-n {
+          font-size: 28px;
+        }
+
+        /* Staff grid */
+        .staff-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .staff-header {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-bottom: 32px;
+          gap: 8px;
+        }
+
+        /* Join */
+        #join {
+          padding: 48px 20px;
+        }
+        .join-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 28px;
+        }
+        .join-btns {
+          width: 100%;
+          flex-direction: column;
+        }
+        .btn-white,
+        .btn-outline-w {
+          width: 100%;
+          text-align: center;
+          justify-content: center;
+        }
+        .join-wm {
+          font-size: 120px;
+        }
+
+        /* Footer */
+        footer {
+          padding: 28px 20px 20px;
+        }
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+      }
+
+      /* ════════════════════════════════════════
+         RESPONSIVE — Small Mobile  ≤ 480px
+         ════════════════════════════════════════ */
+      @media (max-width: 480px) {
+        #hero {
+          padding: 88px 16px 48px;
+        }
+        .hero-wm {
+          font-size: 110px;
+        }
+        .sec {
+          padding: 48px 16px;
+        }
+        .filter-bar {
+          padding: 10px 16px;
+        }
+        #join {
+          padding: 40px 16px;
+        }
+        footer {
+          padding: 24px 16px 18px;
+        }
+
+        .hero-hl {
+          line-height: 0.94;
+        }
+
+        /* Stack hero count inline */
+        .hero-count-box {
+          padding: 14px 18px;
+          border-radius: 12px;
+        }
+        .hc-n {
+          font-size: 36px;
+        }
+        .hc-l {
+          font-size: 8px;
+        }
+
+        /* Dept strip: 1 col on tiny screens */
+        .dept-strip {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* Lead card full width */
+        .lead-body {
+          padding: 16px 16px 18px;
+        }
+        .lead-name {
+          font-size: 22px;
+        }
+
+        /* Staff card */
+        .staff-card {
+          padding: 18px 16px;
+        }
+        .sc-name {
+          font-size: 14px;
+        }
+        .sc-tag {
+          font-size: 7.5px;
+        }
+
+        /* Search exposed below filter on small */
+        .search-pill {
+          display: flex;
+          margin-left: 0;
+          margin-top: 8px;
+          width: 100%;
+        }
+        .search-pill input {
+          width: 100%;
+        }
+        .filter-inner {
+          flex-wrap: wrap;
+        }
+      }
+
+      /* ════════════════════════════════════════
+         UTILITY: touch device hover suppression
+         ════════════════════════════════════════ */
+      @media (hover: none) {
+        .staff-card:hover,
+        .lead-card:hover,
+        .dept-box:hover {
+          transform: none;
+        }
+        .staff-card::after {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -824,25 +1192,14 @@
     <nav>
       <a href="#" class="nav-logo">
         <div class="logo-icon">
-          <svg viewBox="0 0 20 22" fill="none">
-            <path
-              d="M10 1L2 4.5V10C2 14.8 5.5 19.3 10 21C14.5 19.3 18 14.8 18 10V4.5L10 1Z"
-              stroke="#6474e5"
-              stroke-width="1.5"
-              stroke-linejoin="round" />
-            <path
-              d="M7 11L9 13L13 9"
-              stroke="#6474e5"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </div>
-        <div>
-          <span class="logo-name">Indra Cyber Institute</span>
-          <span class="logo-since">Since 2007</span>
+          <img
+            src="../assets/2fed0f3a-7f19-40bc-8620-f7882dcef548.png"
+            alt="Indra Cyber Institute logo"
+            width="34"
+            height="34" />
         </div>
       </a>
+
       <ul class="nav-links">
         <li><a href="/index.html">Нүүр</a></li>
         <li><a href="/index.html#about">Тухай</a></li>
@@ -851,7 +1208,21 @@
         <li><a class="active" href="#">Баг</a></li>
         <li><a href="/index.html#cta">Холбоо</a></li>
       </ul>
+
+      <button class="nav-hamburger" id="hamburger" aria-label="Цэс нээх">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <!-- MOBILE DRAWER -->
+    <ul class="nav-drawer" id="nav-drawer">
+      <li><a href="/index.html">Нүүр</a></li>
+      <li><a href="/index.html#about">Тухай</a></li>
+      <li><a href="/index.html#programs">Хөтөлбөр</a></li>
+      <li><a href="/index.html#campus">Кампус</a></li>
+      <li><a class="active" href="#">Баг</a></li>
+      <li><a href="/index.html#cta">Холбоо барих</a></li>
+    </ul>
 
     <!-- HERO -->
     <section id="hero">
@@ -881,25 +1252,25 @@
     <!-- FILTER BAR -->
     <div class="filter-bar">
       <div class="filter-inner">
-        <button class="filter-btn active" onclick="filterStaff('all')">
+        <button class="filter-btn active" onclick="filterStaff('all', event)">
           Бүгд
         </button>
-        <button class="filter-btn" onclick="filterStaff('mgmt')">
+        <button class="filter-btn" onclick="filterStaff('mgmt', event)">
           Удирдлага
         </button>
-        <button class="filter-btn" onclick="filterStaff('sw')">
+        <button class="filter-btn" onclick="filterStaff('sw', event)">
           SW хөтөлбөр
         </button>
-        <button class="filter-btn" onclick="filterStaff('dm')">
+        <button class="filter-btn" onclick="filterStaff('dm', event)">
           DM хөтөлбөр
         </button>
-        <button class="filter-btn" onclick="filterStaff('lang')">
+        <button class="filter-btn" onclick="filterStaff('lang', event)">
           Хэлний анги
         </button>
-        <button class="filter-btn" onclick="filterStaff('admin')">
+        <button class="filter-btn" onclick="filterStaff('admin', event)">
           Захиргаа
         </button>
-        <button class="filter-btn" onclick="filterStaff('campus')">
+        <button class="filter-btn" onclick="filterStaff('campus', event)">
           Кампус
         </button>
         <div class="filter-sep"></div>
@@ -928,9 +1299,7 @@
           <span class="eyebrow-text">Удирдах баг</span>
         </div>
         <h2 class="sec-title">УДИРДЛАГА БА<br />ХӨТӨЛБӨРИЙН ДАРГА НАР</h2>
-
         <div class="lead-grid">
-          <!-- Lead 1 -->
           <div
             class="lead-card reveal"
             data-dept="mgmt"
@@ -1024,12 +1393,11 @@
             <h2 class="sec-title">БҮРЭН<br />ЖАГСААЛТ</h2>
           </div>
           <div class="staff-count" id="visible-count">
-            15 ажилтан харагдаж байна
+            8 ажилтан харагдаж байна
           </div>
         </div>
 
         <div class="staff-grid" id="staff-grid">
-          <!-- UPDATED / NEW TEACHERS -->
           <div
             class="staff-card reveal"
             data-dept="dm"
@@ -1049,11 +1417,11 @@
                 >Мэргэжил: Маркетинг · Бизнесийн удирдлага (Магистр)</span
               >
               <span class="sc-tag">Арга барил: кейс · хэлэлцүүлэг · төсөл</span>
-              <span class="sc-tag">2025: “Боловсролын тэргүүний ажилтан”</span>
+              <span class="sc-tag">2025: "Боловсролын тэргүүний ажилтан"</span>
               <span class="sc-tag">ШУТИС ЭШХ (2022, 2024): Дэд байр</span>
-              <span class="sc-tag">Шавь: “Мүмү” 100K+ · Г.Алтаншагай</span>
+              <span class="sc-tag">Шавь: "Мүмү" 100K+ · Г.Алтаншагай</span>
               <span class="sc-tag"
-                >Философи: “Мэдлэгээс гадна мэдрэмж ч бас чухал.”</span
+                >Философи: "Мэдлэгээс гадна мэдрэмж ч бас чухал."</span
               >
             </div>
             <div class="sc-foot">
@@ -1075,18 +1443,13 @@
               стратеги, контент бүтээлээр зөвлөгөө өгдөг.
             </p>
             <div class="sc-tags">
-              <span class="sc-tag">Төрсөн: 1991.05.21</span>
               <span class="sc-tag">Байгууллага: Marketing Monsters</span>
               <span class="sc-tag"
                 >Чиглэл: Сошиал медиа · Контент · Брэндинг</span
               >
-              <span class="sc-tag">Ур чадвар: стратеги · илтгэх · SMM</span>
               <span class="sc-tag">Туршлага: Star TV · Plus TV · Mobicom</span>
               <span class="sc-tag"
-                >Нийгмийн оролцоо: УЗ · сайн дурын ажил · 90 донор</span
-              >
-              <span class="sc-tag"
-                >Мессеж: “Та өөрөө инфлюнсэр болж чадна.”</span
+                >Мессеж: "Та өөрөө инфлюнсэр болж чадна."</span
               >
             </div>
             <div class="sc-foot">
@@ -1109,7 +1472,7 @@
             </p>
             <div class="sc-tags">
               <span class="sc-tag"
-                >Туршлага: Дизайнер 2 жил · Маркетер 2 жил · Багш 5 жил</span
+                >Дизайнер 2 жил · Маркетер 2 жил · Багш 5 жил</span
               >
               <span class="sc-tag"
                 >Боловсрол: Бизнесийн удирдлага (Бакалавр)</span
@@ -1142,10 +1505,9 @@
               <span class="sc-tag">Нас: 21</span>
               <span class="sc-tag">Англи хэл: C1</span>
               <span class="sc-tag"
-                >Чиглэл: Fullstack · UI/UX · AI & Digital маркетинг</span
+                >Fullstack · UI/UX · AI & Digital маркетинг</span
               >
               <span class="sc-tag">Оюутнуудын 50%+ ажилд ордог</span>
-              <span class="sc-tag">2023: Шилдэг борлуулагч</span>
               <span class="sc-tag"
                 >AI: ChatGPT · Midjourney · Runway · Veo · Kling</span
               >
@@ -1211,9 +1573,7 @@
             <div class="sc-tags">
               <span class="sc-tag">Нас: 25</span>
               <span class="sc-tag">Туршлага: 3 жил</span>
-              <span class="sc-tag"
-                >Боловсрол: ШУТИС · Системийн аюулгүй байдал</span
-              >
+              <span class="sc-tag">ШУТИС · Системийн аюулгүй байдал</span>
               <span class="sc-tag">UX/UI дизайнер туршлагатай</span>
             </div>
             <div class="sc-foot">
@@ -1233,7 +1593,6 @@
             <div class="sc-tags">
               <span class="sc-tag">Туршлага: 2 жил</span>
               <span class="sc-tag">Чиглэл: Онлайн сургалт</span>
-              <span class="sc-tag">Сэтгэлзүйн дэмжлэг сайн</span>
               <span class="sc-tag">Хүн бүрийг ойлгож заадаг</span>
             </div>
             <div class="sc-foot">
@@ -1278,7 +1637,7 @@
     </footer>
 
     <script>
-      // Reveal on scroll
+      // ── Reveal on scroll ──
       const obs = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -1288,16 +1647,31 @@
             }
           });
         },
-        {threshold: 0.1},
+        {threshold: 0.08},
       );
       document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
 
-      // Filter
-      function filterStaff(dept) {
+      // ── Hamburger ──
+      const hamburger = document.getElementById("hamburger");
+      const drawer = document.getElementById("nav-drawer");
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        drawer.classList.toggle("open");
+      });
+      // Close drawer when a link is tapped
+      drawer.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          drawer.classList.remove("open");
+        });
+      });
+
+      // ── Filter ──
+      function filterStaff(dept, e) {
         document
           .querySelectorAll(".filter-btn")
           .forEach((b) => b.classList.remove("active"));
-        event.target.classList.add("active");
+        if (e && e.target) e.target.classList.add("active");
         const cards = document.querySelectorAll("#staff-grid .staff-card");
         let count = 0;
         cards.forEach((card) => {
@@ -1309,7 +1683,7 @@
           count + " ажилтан харагдаж байна";
       }
 
-      // Search
+      // ── Search ──
       function searchStaff(val) {
         const q = val.toLowerCase();
         const cards = document.querySelectorAll("#staff-grid .staff-card");

@@ -62,17 +62,18 @@
         text-decoration: none;
       }
       .logo-icon {
-        width: 34px;
-        height: 34px;
-        background: var(--navy);
-        border-radius: 8px;
+        width: 120px;
+        height: 120px;
+
         display: flex;
         align-items: center;
         justify-content: center;
       }
-      .logo-icon svg {
-        width: 20px;
-        height: 20px;
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
       }
       .logo-name {
         font-weight: 500;
@@ -1543,23 +1544,11 @@
     <nav>
       <a href="#" class="nav-logo">
         <div class="logo-icon">
-          <svg viewBox="0 0 20 22" fill="none">
-            <path
-              d="M10 1L2 4.5V10C2 14.8 5.5 19.3 10 21C14.5 19.3 18 14.8 18 10V4.5L10 1Z"
-              stroke="#6474e5"
-              stroke-width="1.5"
-              stroke-linejoin="round" />
-            <path
-              d="M7 11L9 13L13 9"
-              stroke="#6474e5"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </div>
-        <div>
-          <span class="logo-name">Indra Cyber Institute</span>
-          <span class="logo-since">Since 2007</span>
+          <img
+            src="../assets/2fed0f3a-7f19-40bc-8620-f7882dcef548.png"
+            alt="Indra Cyber Institute logo"
+            width="34"
+            height="34" />
         </div>
       </a>
       <ul class="nav-links">
