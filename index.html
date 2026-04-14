@@ -3,641 +3,2623 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indra Cyber Institute</title>
+    <title>Индра Кибер Институт</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="./styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --bg: #0b0d1f;
+        --bg2: #0f1228;
+        --surface: #161933;
+        --surface2: #1c2040;
+        --navy: #2e3191;
+        --blue: #3d4fd6;
+        --blue-light: #6474e5;
+        --blue-pale: #8892cc;
+        --accent: #e8eaf6;
+        --gold: #f5a623;
+        --ink: #e8eaf6;
+        --muted: #7a85a8;
+        --border: rgba(255, 255, 255, 0.07);
+        --border-hover: rgba(255, 255, 255, 0.18);
+        --white: #ffffff;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 64px;
+        z-index: 200;
+        background: rgba(11, 13, 31, 0.92);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 56px;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+      .logo-icon {
+        width: 34px;
+        height: 34px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .logo-icon img {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+        display: block;
+        filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35));
+      }
+      .logo-name {
+        font-weight: 500;
+        font-size: 13px;
+        color: var(--accent);
+        display: block;
+      }
+      .logo-since {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        color: var(--muted);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .nav-links {
+        display: flex;
+        gap: 36px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 13px;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+      .nav-links a.active {
+        color: var(--accent);
+        border-bottom: 1.5px solid var(--blue-light);
+        padding-bottom: 2px;
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .search-pill {
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        padding: 7px 16px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        width: 148px;
+        cursor: text;
+      }
+      .search-pill span {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .btn-pri {
+        background: var(--blue);
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 6px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+      }
+      .btn-pri:hover {
+        background: var(--navy);
+        transform: translateY(-1px);
+      }
+      .btn-arr {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        border-radius: 100px;
+        padding: 2px 9px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .btn-sec {
+        border: 1.5px solid var(--border);
+        color: var(--accent);
+        background: transparent;
+        padding: 10px 22px;
+        border-radius: 6px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+        transition: border-color 0.2s;
+      }
+      .btn-sec:hover {
+        border-color: var(--border-hover);
+      }
+
+      /* ── EYEBROW ── */
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .eyebrow-line {
+        width: 26px;
+        height: 1.5px;
+        background: var(--blue-light);
+        flex-shrink: 0;
+      }
+      .eyebrow-text {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--blue-light);
+      }
+
+      /* ── SECTION TITLE ── */
+      .sec-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(36px, 4.5vw, 56px);
+        line-height: 0.92;
+        letter-spacing: 0.01em;
+        color: var(--accent);
+        margin-bottom: 20px;
+      }
+
+      /* ── SECTION WRAPPER ── */
+      .sec {
+        padding: 96px 56px;
+        border-top: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+      .sec.alt {
+        background: var(--bg2);
+      }
+      .sec.light {
+        background: var(--bg);
+      }
+      .inner {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      /* ── HERO ── */
+      #hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 56% 44%;
+        background: var(--bg);
+        padding-top: 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-left {
+        padding: 72px 56px 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-hl {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(72px, 10vw, 140px);
+        line-height: 0.91;
+        letter-spacing: -0.01em;
+        margin-bottom: 28px;
+        margin-top: 24px;
+      }
+      .hero-hl .l1 {
+        color: var(--accent);
+        display: block;
+      }
+      .hero-hl .l2 {
+        color: var(--blue-light);
+        display: block;
+      }
+      .hero-hl .l3 {
+        color: transparent;
+        -webkit-text-stroke: 2.5px var(--blue-light);
+        display: block;
+      }
+      .hero-desc {
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 1.8;
+        color: var(--muted);
+        max-width: 370px;
+        margin-bottom: 36px;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 56px;
+      }
+      .hero-stats {
+        display: flex;
+        border-top: 1px solid var(--border);
+        padding-top: 32px;
+      }
+      .stat-item {
+        flex: 1;
+        padding-right: 24px;
+        margin-right: 24px;
+        border-right: 1px solid var(--border);
+      }
+      .stat-item:last-child {
+        border-right: none;
+        margin-right: 0;
+        padding-right: 0;
+      }
+      .stat-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 42px;
+        color: var(--accent);
+        line-height: 1;
+      }
+      .stat-num sup {
+        font-family: "DM Sans", sans-serif;
+        font-size: 20px;
+        color: var(--blue-light);
+        vertical-align: super;
+      }
+      .stat-lbl {
+        font-weight: 300;
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      .hero-right {
+        background: linear-gradient(
+          155deg,
+          #141740 0%,
+          #0d1035 45%,
+          #080a22 100%
+        );
+        border-radius: 20px 0 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-wm {
+        position: absolute;
+        bottom: -20px;
+        right: -10px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 220px;
+        color: rgba(255, 255, 255, 0.03);
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+      }
+      .hero-chip {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 100px;
+        padding: 6px 16px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.6);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .hero-badge {
+        position: absolute;
+        bottom: 28px;
+        left: 24px;
+        background: var(--surface2);
+        border: 1px solid var(--blue);
+        border-radius: 12px;
+        padding: 14px 20px;
+      }
+      .badge-yr {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 32px;
+        color: var(--blue-light);
+        line-height: 1;
+      }
+      .badge-sub {
+        font-size: 10px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      .hero-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        z-index: 2;
+        position: relative;
+      }
+      .hero-shield-ring {
+        width: 96px;
+        height: 96px;
+        border: 2px solid rgba(100, 116, 229, 0.5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .hero-shield-ring svg {
+        width: 52px;
+        height: 52px;
+      }
+      .hero-inst-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.35);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      /* rotating badge */
+      .rot-badge {
+        position: absolute;
+        left: calc(56% - 72px);
+        top: 96px;
+        width: 116px;
+        height: 116px;
+        z-index: 10;
+      }
+      .rot-badge svg {
+        animation: spin 14s linear infinite;
+      }
+      .rot-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .rot-center span {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 8px;
+        color: var(--blue-pale);
+        display: block;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        line-height: 1.5;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ── ABOUT ── */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        margin-top: 64px;
+      }
+      .about-img {
+        background: var(--surface);
+        border-radius: 20px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+      .about-wm {
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 190px;
+        color: rgba(255, 255, 255, 0.04);
+        line-height: 1;
+        pointer-events: none;
+      }
+      .about-float {
+        position: absolute;
+        bottom: -22px;
+        right: -22px;
+        background: var(--blue);
+        border-radius: 14px;
+        padding: 18px 22px;
+        border: 1px solid rgba(100, 116, 229, 0.4);
+      }
+      .about-float-n {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 38px;
+        color: #fff;
+        line-height: 1;
+      }
+      .about-float-l {
+        font-size: 10px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 3px;
+      }
+      .about-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .about-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px 22px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          border-color 0.25s,
+          transform 0.25s;
+        cursor: default;
+      }
+      .about-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, var(--blue), var(--blue-light));
+        border-radius: 0;
+      }
+      .about-card:hover {
+        border-color: var(--border-hover);
+        transform: translateX(4px);
+      }
+      .about-card h3 {
+        font-weight: 500;
+        font-size: 15px;
+        color: var(--accent);
+        margin-bottom: 5px;
+      }
+      .about-card p {
+        font-weight: 300;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      /* ── MISSION ── */
+      .quote-box {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 56px 60px;
+        position: relative;
+        overflow: hidden;
+        margin-top: 60px;
+      }
+      .quote-mark {
+        position: absolute;
+        top: -20px;
+        right: 40px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 180px;
+        color: rgba(255, 255, 255, 0.04);
+        line-height: 1;
+        pointer-events: none;
+      }
+      .quote-text {
+        font-weight: 300;
+        font-style: italic;
+        font-size: clamp(16px, 1.5vw, 22px);
+        color: var(--accent);
+        line-height: 1.6;
+        max-width: 800px;
+      }
+      .mission-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        margin-top: 48px;
+        padding-top: 48px;
+        border-top: 1px solid var(--border);
+      }
+      .mission-col .mini-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        color: var(--blue-light);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 10px;
+      }
+      .mission-col p {
+        font-weight: 300;
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      /* ── TIMELINE ── */
+      .tl-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 64px;
+      }
+      .tl-sub {
+        font-weight: 300;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .tl-wrap {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        gap: 0;
+      }
+      .tl-line-col {
+        position: relative;
+      }
+      .tl-vline {
+        position: absolute;
+        left: 4px;
+        top: 10px;
+        bottom: 0;
+        width: 1.5px;
+        background: linear-gradient(
+          180deg,
+          var(--blue) 0%,
+          rgba(45, 58, 184, 0.1) 100%
+        );
+      }
+      .tl-items {
+        display: flex;
+        flex-direction: column;
+      }
+      .tl-item {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        gap: 0;
+        padding-bottom: 48px;
+      }
+      .tl-dot-wrap {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding-top: 2px;
+      }
+      .tl-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--surface2);
+        border: 1.5px solid var(--blue-pale);
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .tl-dot.active {
+        background: var(--blue);
+        border-color: var(--blue-light);
+      }
+      .tl-dot.milestone {
+        background: var(--blue-light);
+        border-color: var(--accent);
+        box-shadow: 0 0 12px rgba(100, 116, 229, 0.5);
+      }
+      .tl-content {
+        padding-left: 8px;
+      }
+      .tl-year {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        color: var(--blue-light);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        margin-bottom: 4px;
+      }
+      .tl-title {
+        font-weight: 500;
+        font-size: 17px;
+        color: var(--accent);
+        margin-bottom: 6px;
+      }
+      .tl-body {
+        font-weight: 300;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.65;
+        max-width: 640px;
+      }
+      .tl-milestone-badge {
+        display: inline-block;
+        background: var(--blue);
+        border-radius: 8px;
+        border: 1px solid var(--blue-light);
+        padding: 6px 14px;
+        margin-top: 10px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 24px;
+        color: #fff;
+        line-height: 1;
+      }
+
+      /* ── PROGRAMS ── */
+      .prog-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 60px;
+      }
+      .prog-sub {
+        font-weight: 300;
+        font-size: 14px;
+        color: var(--muted);
+        max-width: 380px;
+        line-height: 1.7;
+      }
+      .prog-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .prog-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s,
+          border-color 0.3s;
+        cursor: pointer;
+        position: relative;
+      }
+      .prog-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--blue-light);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s;
+      }
+      .prog-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+        border-color: var(--border-hover);
+      }
+      .prog-card:hover::before {
+        transform: scaleX(1);
+      }
+      .prog-visual {
+        height: 192px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        background: var(--surface2);
+      }
+      .prog-num {
+        position: absolute;
+        bottom: -8px;
+        right: 8px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 68px;
+        opacity: 0.1;
+        color: #fff;
+        line-height: 1;
+        pointer-events: none;
+      }
+      .prog-icon {
+        font-size: 48px;
+        z-index: 1;
+        position: relative;
+      }
+      .prog-body {
+        padding: 24px 24px 26px;
+      }
+      .prog-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        padding: 4px 12px;
+        border-radius: 100px;
+        display: inline-block;
+        margin-bottom: 10px;
+        background: rgba(100, 116, 229, 0.15);
+        color: var(--blue-light);
+      }
+      .prog-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 34px;
+        color: var(--accent);
+        line-height: 0.95;
+        margin-bottom: 10px;
+      }
+      .prog-desc {
+        font-weight: 300;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.65;
+        margin-bottom: 14px;
+      }
+      .prog-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 18px;
+      }
+      .pill {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 4px 10px;
+        border-radius: 100px;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        background: transparent;
+      }
+      .prog-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+      }
+      .prog-dur {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 26px;
+        color: var(--accent);
+        line-height: 1;
+      }
+      .prog-dur-sub {
+        font-weight: 300;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .prog-arrow {
+        width: 38px;
+        height: 38px;
+        border: 1.5px solid var(--border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: var(--muted);
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          transform 0.2s,
+          color 0.2s;
+      }
+      .prog-card:hover .prog-arrow {
+        background: var(--blue);
+        color: #fff;
+        border-color: var(--blue);
+        transform: rotate(-45deg);
+      }
+
+      /* ── STATS ── */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 64px;
+      }
+      .yr-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 32px 28px;
+        transition: border-color 0.25s;
+      }
+      .yr-card:hover {
+        border-color: var(--border-hover);
+      }
+      .yr-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        margin-bottom: 8px;
+      }
+      .yr-total {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 56px;
+        line-height: 1;
+        margin-bottom: 24px;
+      }
+      .yr-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .yr-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 300;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .target-strip {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 28px 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 24px;
+      }
+      .ts-left .ts-lbl {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 4px;
+      }
+      .ts-left .ts-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 52px;
+        color: var(--accent);
+        line-height: 1;
+      }
+      .ts-left .ts-sub {
+        font-weight: 300;
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .ts-chips {
+        display: flex;
+        gap: 12px;
+      }
+      .ts-chip {
+        border-radius: 8px;
+        padding: 10px 18px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .ts-chip.gold {
+        background: var(--blue);
+        color: #fff;
+      }
+      .ts-chip.ghost {
+        background: rgba(255, 255, 255, 0.07);
+        color: var(--accent);
+        border: 1px solid var(--border);
+      }
+
+      /* ── PRICING ── */
+      .pricing-tabs {
+        display: flex;
+        gap: 10px;
+        margin: 24px 0 28px;
+      }
+      .pricing-tab {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        padding: 10px 18px;
+        border-radius: 10px;
+        font-size: 13px;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          background 0.2s;
+      }
+      .pricing-tab:hover {
+        border-color: var(--border-hover);
+        color: var(--accent);
+      }
+      .pricing-tab.active {
+        background: var(--blue);
+        color: #fff;
+        border-color: var(--blue);
+      }
+      .pricing-table {
+        display: none;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px;
+        overflow-x: auto;
+      }
+      .pricing-table.active {
+        display: block;
+      }
+      .pricing table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 780px;
+      }
+      .pricing th,
+      .pricing td {
+        text-align: left;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        white-space: nowrap;
+      }
+      .pricing th {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .pricing td {
+        color: var(--accent);
+      }
+      .pricing-total {
+        margin-top: 16px;
+        padding: 14px 16px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface2);
+      }
+      .pricing-total-label {
+        font-size: 11px;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+      .pricing-total-val {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 34px;
+        line-height: 1;
+        color: var(--blue-light);
+      }
+
+      /* ── CAMPUS ── */
+      .campus-highlight {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 44px 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        margin-top: 64px;
+      }
+      .campus-highlight h3 {
+        font-weight: 500;
+        font-size: 22px;
+        color: var(--accent);
+        margin-bottom: 12px;
+      }
+      .campus-highlight p {
+        font-weight: 300;
+        font-size: 14px;
+        color: var(--muted);
+        max-width: 520px;
+        line-height: 1.75;
+      }
+      .campus-badges {
+        display: flex;
+        gap: 16px;
+        flex-shrink: 0;
+      }
+      .campus-badge {
+        border-radius: 12px;
+        padding: 16px 24px;
+        text-align: center;
+      }
+      .campus-badge.gold {
+        background: var(--blue);
+        border: 1px solid var(--blue-light);
+      }
+      .campus-badge.white {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+      }
+      .campus-badge-n {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 36px;
+        line-height: 1;
+      }
+      .campus-badge.gold .campus-badge-n {
+        color: #fff;
+      }
+      .campus-badge.white .campus-badge-n {
+        color: var(--accent);
+      }
+      .campus-badge-l {
+        font-weight: 300;
+        font-size: 10px;
+        text-transform: uppercase;
+        margin-top: 4px;
+      }
+      .campus-badge.gold .campus-badge-l {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .campus-badge.white .campus-badge-l {
+        color: var(--muted);
+      }
+      .campus-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 20px;
+      }
+      .campus-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 28px 24px;
+        transition:
+          border-color 0.25s,
+          transform 0.25s;
+      }
+      .campus-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-4px);
+      }
+      .campus-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--surface2);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        margin-bottom: 14px;
+      }
+      .campus-card h3 {
+        font-weight: 500;
+        font-size: 16px;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+      .campus-card p {
+        font-weight: 300;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      /* ── PARTNERS ── */
+      .partners-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 48px;
+      }
+      .partner-pill {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: border-color 0.2s;
+        cursor: default;
+      }
+      .partner-pill:hover {
+        border-color: var(--border-hover);
+      }
+      .partner-pill .pd {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--blue-light);
+        flex-shrink: 0;
+      }
+      .partner-pill span {
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--accent);
+      }
+      .partners-desc {
+        font-weight: 300;
+        font-size: 14px;
+        color: var(--muted);
+        max-width: 640px;
+        line-height: 1.75;
+        margin-top: 32px;
+      }
+
+      /* ── FUTURE ── */
+      .future-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 64px;
+      }
+      .future-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 48px 28px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          border-color 0.25s;
+      }
+      .future-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--border-hover);
+      }
+      .future-card-wm {
+        position: absolute;
+        top: 18px;
+        left: 24px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 56px;
+        color: rgba(255, 255, 255, 0.05);
+        line-height: 1;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .future-card h3 {
+        font-weight: 500;
+        font-size: 16px;
+        color: var(--accent);
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+        padding-top: 28px;
+      }
+      .future-card p {
+        font-weight: 300;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.65;
+        position: relative;
+        z-index: 1;
+      }
+      .future-card.wide {
+        grid-column: span 2;
+      }
+      .future-stat-n {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 40px;
+        color: var(--blue-light);
+        margin-top: 12px;
+      }
+      .future-stat-s {
+        font-weight: 300;
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      /* ── CTA BAND ── */
+      #cta {
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        padding: 72px 56px;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-wm {
+        position: absolute;
+        right: -20px;
+        top: -30px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 200px;
+        color: rgba(255, 255, 255, 0.03);
+        line-height: 1;
+        pointer-events: none;
+      }
+      .cta-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+      }
+      .cta-left .eyebrow-text {
+        color: var(--blue-light);
+      }
+      .cta-left .eyebrow-line {
+        background: var(--blue-light);
+      }
+      .cta-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(36px, 4vw, 52px);
+        color: var(--accent);
+        line-height: 0.92;
+        margin-bottom: 16px;
+      }
+      .cta-body {
+        font-weight: 300;
+        font-size: 15px;
+        color: var(--muted);
+        max-width: 500px;
+        line-height: 1.7;
+      }
+      .cta-btns {
+        display: flex;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+      .btn-white {
+        background: var(--blue);
+        color: #fff;
+        padding: 13px 28px;
+        border-radius: 8px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .btn-white:hover {
+        background: var(--navy);
+      }
+      .btn-outline-w {
+        border: 1.5px solid var(--border);
+        color: var(--accent);
+        background: transparent;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+        transition: border-color 0.2s;
+      }
+      .btn-outline-w:hover {
+        border-color: var(--border-hover);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--bg);
+        border-top: 1px solid var(--border);
+        padding: 60px 56px 32px;
+      }
+      .footer-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 44px;
+      }
+      .footer-brand-mark {
+        width: 30px;
+        height: 30px;
+        background: var(--navy);
+        border: 1.5px solid var(--blue-light);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        color: var(--blue-light);
+      }
+      .footer-brand-name {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 22px;
+        letter-spacing: 0.04em;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+      .footer-tagline {
+        font-weight: 300;
+        font-size: 13px;
+        color: var(--muted);
+        max-width: 260px;
+        line-height: 1.6;
+      }
+      .footer-col-title {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        color: rgba(255, 255, 255, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 16px;
+      }
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footer-links a {
+        font-weight: 300;
+        font-size: 13px;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+      .footer-links a.gold {
+        color: var(--blue-light);
+      }
+      .footer-bottom {
+        border-top: 1px solid var(--border);
+        padding-top: 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer-copy,
+      .footer-links-b {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.25);
+      }
+      .footer-links-b a {
+        color: rgba(255, 255, 255, 0.25);
+        text-decoration: none;
+      }
+      .footer-links-b a:hover {
+        color: var(--muted);
+      }
+
+      /* universal card effect */
+      .card-effect {
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.28s ease,
+          box-shadow 0.28s ease,
+          border-color 0.28s ease;
+        transform: translateY(-6px);
+        border-color: var(--border-hover);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      }
+      .card-effect::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          120deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.08) 45%,
+          transparent 75%
+        );
+        transform: translateX(130%);
+        transition: transform 0.5s ease;
+        pointer-events: none;
+      }
+
+      /* scroll reveal */
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
   </head>
-  <body data-page="index" data-content-base="." data-nav-active="index">
+  <body>
     <!-- NAV -->
     <nav>
-      <a
-        class="nav-logo"
-        href="./index.html"
-        aria-label="Indra Cyber Institute — нүүр хуудас">
-        <div class="logo-shield">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">
           <img
             src="./assets/logoo-white-BOSOO.png"
-            alt=""
-            width="140"
-            height="32"
-            decoding="async" />
+            alt="Indra Cyber Institute logo"
+            width="34"
+            height="34" />
         </div>
-        <div class="logo-wm">
-          <span class="logo-main">Indra Cyber Institute</span>
-          <span class="logo-sub">Since 2018</span>
+        <div>
+          <span class="logo-name">Indra Cyber Institute</span>
+          <span class="logo-since">Since 2007</span>
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="./index.html" class="act">Нүүр</a></li>
-        <li><a href="./pages/programs.html">Сургалт</a></li>
+        <li><a href="#hero" class="active">Нүүр</a></li>
+        <li><a href="#about">Тухай</a></li>
+        <li><a href="#history">Түүх</a></li>
+        <li><a href="#programs">Хөтөлбөр</a></li>
         <li><a href="./pages/team.html">Баг</a></li>
-        <li class="nav-links-cta">
-          <a class="nav-cta" href="./pages/programs.html#contact-form"
-            >Зөвөлгөө авах</a
-          >
-        </li>
+        <li><a href="#campus">Кампус</a></li>
+        <li><a href="#future">Ирээдүй</a></li>
+        <li><a href="#cta">Холбоо</a></li>
       </ul>
-      <div class="nav-r">
-        <button
-          class="nav-burger"
-          type="button"
-          aria-label="Цэс"
-          aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-        <div class="nav-search">
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8">
-            <circle cx="7" cy="7" r="5" />
-            <path d="M11 11l3 3" />
-          </svg>
-          Хайх...
-        </div>
-        <a class="nav-cta" href="./pages/programs.html#contact-form"
-          >Зөвөлгөө авах</a
-        >
-      </div>
     </nav>
 
     <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="hero-inner">
-        <div class="hero-hl">
-          <div class="hl1-row">
-            <div class="badge-wrap">
-              <svg class="badge-svg" viewBox="0 0 116 116" aria-hidden="true">
-                <defs>
-                  <path
-                    id="cp"
-                    d="M 58,58 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0" />
-                </defs>
-                <text
-                  font-family="JetBrains Mono,monospace"
-                  font-size="9.2"
-                  fill="#1C2278"
-                  letter-spacing="3.6">
-                  <textPath href="#cp">
-                    DIGITAL SKILLS · CREATIVE FUTURE · ICI ·
-                  </textPath>
-                </text>
-              </svg>
-              <div class="badge-ctr">SINCE<br />2018</div>
-            </div>
-            <span class="hl1">ДИЖИТАЛ</span>
-          </div>
-          <span class="hl2">МЭРГЭЖИЛ</span>
-          <span class="hl3">ОЛГОДОГ</span>
-        </div>
+    <section id="hero">
+      <!-- rotating badge -->
+      <div class="rot-badge">
+        <svg width="116" height="116" viewBox="0 0 116 116">
+          <defs>
+            <path
+              id="rp"
+              d="M58,58 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
+          </defs>
+          <circle
+            cx="58"
+            cy="58"
+            r="52"
+            fill="none"
+            stroke="rgba(255,255,255,0.08)"
+            stroke-width="1" />
+          <text
+            font-family="'JetBrains Mono',monospace"
+            font-size="9.2"
+            fill="#6474e5"
+            letter-spacing="3.6">
+            <textPath href="#rp">SINCE 2007 · АМЖИЛТ ГРУПП · ICI ·</textPath>
+          </text>
+        </svg>
+        <div class="rot-center"><span>SINCE</span><span>2007</span></div>
+      </div>
 
-        <div class="hero-body">
-          <div class="hero-desc-col">
-            <p class="hero-desc">
-              Fullstack хөгжүүлэлт, Digital маркетинг, Graphic дизайн — 3
-              чиглэлээр мэргэжлийн карьераа эхлүүл. Практик сургалт, portfolio
-              бүтээх, ажилд зуучлалын дэмжлэг.
-            </p>
-            <div class="hero-btns">
-              <a class="btn-fill" href="#programs">
-                Сургалтууд харах <span class="pill-arrow">→</span>
-              </a>
-              <a class="btn-stroke" href="#about">Дэлгэрэнгүй</a>
-            </div>
-          </div>
+      <div class="hero-left">
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Дижитал боловсрол · Монгол</span>
         </div>
-
+        <h1 class="hero-hl">
+          <span class="l1">ДИЖИТАЛ</span>
+          <span class="l2">МЭРГЭЖИЛ</span>
+          <span class="l3">ОЛГОДОГ</span>
+        </h1>
+        <p class="hero-desc">
+          Fullstack хөгжүүлэлт, Digital маркетинг, Олон улсын хэлний сургалт —
+          Амжилт Группийн хүрээнд 2007 оноос залуучуудын ирээдүйд хөрөнгө оруулж
+          байна.
+        </p>
+        <div class="hero-btns">
+          <button class="btn-pri">
+            Хөтөлбөр харах <span class="btn-arr">→</span>
+          </button>
+          <button class="btn-sec">Дэлгэрэнгүй</button>
+        </div>
         <div class="hero-stats">
-          <div class="hstat">
-            <div class="hstat-n">500<sup>+</sup></div>
-            <div class="hstat-l">Нийт төгсөгч</div>
+          <div class="stat-item">
+            <div class="stat-num">1000<sup>+</sup></div>
+            <div class="stat-lbl">Нийт төгсөгч</div>
           </div>
-          <div class="hstat">
-            <div class="hstat-n">3</div>
-            <div class="hstat-l">Мэргэжлийн чиглэл</div>
+          <div class="stat-item">
+            <div class="stat-num">6</div>
+            <div class="stat-lbl">Сургалтын хөтөлбөр</div>
           </div>
-          <div class="hstat">
-            <div class="hstat-n">7<sup>+</sup></div>
-            <div class="hstat-l">Жилийн туршлага</div>
+          <div class="stat-item">
+            <div class="stat-num">2007</div>
+            <div class="stat-lbl">Үүссэн он</div>
           </div>
-          <div class="hstat">
-            <div class="hstat-n">98<sup>%</sup></div>
-            <div class="hstat-l">Ажилд орсон</div>
+          <div class="stat-item">
+            <div class="stat-num">600<sup>+</sup></div>
+            <div class="stat-lbl">2026 зорилт</div>
           </div>
         </div>
       </div>
 
-      <!-- Single hero image — ArcWay style -->
-      <div class="hero-img-wrap">
-        <!-- Зураг байгаа бол: <img src="your-image.jpg" alt="ICI Hero"> -->
-        <div class="hero-img-placeholder">
-          <div class="ph-icon">🎓</div>
-          <div class="ph-label">Indra Cyber Institute</div>
+      <div class="hero-right">
+        <div class="hero-wm">ICI</div>
+        <div class="hero-chip">Улаанбаатар · Монгол</div>
+        <div class="hero-center">
+          <div class="hero-shield-ring">
+            <svg viewBox="0 0 48 52" fill="none">
+              <path
+                d="M24 2L4 10V24C4 35 13 44.5 24 48C35 44.5 44 35 44 24V10L24 2Z"
+                stroke="#6474e5"
+                stroke-width="2"
+                stroke-linejoin="round"
+                fill="rgba(100,116,229,0.08)" />
+              <path
+                d="M17 26L22 31L31 21"
+                stroke="#6474e5"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <span class="hero-inst-label">Indra Cyber Institute</span>
         </div>
-        <div class="img-chip">Since 2018 · Улаанбаатар</div>
-        <div class="img-badge">
-          <div class="img-badge-top">500+</div>
-          <div class="img-badge-bot">Нийт төгсөгч</div>
+        <div class="hero-badge">
+          <div class="badge-yr">2026</div>
+          <div class="badge-sub">Кампус нээнэ</div>
         </div>
       </div>
     </section>
 
-    <!-- PROGRAMS -->
-    <section id="programs">
-      <div class="progs-hd">
-        <div>
-          <div class="eyebrow">Сургалтын хөтөлбөр</div>
-          <h2 class="sec-title">3 МЭРГЭЖЛИЙН<br />ЧИГЛЭЛ</h2>
+    <!-- 03 ABOUT -->
+    <section id="about" class="sec alt">
+      <div class="inner">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+          ">
+          <div>
+            <div class="eyebrow">
+              <div class="eyebrow-line"></div>
+              <span class="eyebrow-text">Байгуулагын тухай</span>
+            </div>
+            <h2 class="sec-title">АМЖИЛТ ГРУППИЙН<br />ХҮРЭЭНД ХӨГЖИЖ БУЙ</h2>
+          </div>
+          <p
+            style="
+              font-weight: 300;
+              font-size: 14px;
+              color: var(--muted);
+              max-width: 400px;
+              line-height: 1.75;
+              margin-top: 36px;
+            ">
+            Индра Кибер Институт нь 12 охин компани, 400 гаруй ажилтантай Амжилт
+            Группийн хүрээнд үйл ажиллагаа явуулдаг боловсролын байгууллага.
+          </p>
         </div>
-        <p class="sec-sub">
-          Практик суурьтай, portfolio-д тулгуурласан, ажил мэргэжлийн дэмжлэгтэй
-          сургалтууд
+        <div class="about-grid reveal">
+          <div style="position: relative">
+            <div class="about-img">
+              <div class="about-wm">ICI</div>
+              <svg
+                width="88"
+                height="88"
+                viewBox="0 0 88 88"
+                fill="none"
+                style="position: relative; z-index: 1">
+                <rect
+                  x="12"
+                  y="44"
+                  width="64"
+                  height="32"
+                  rx="4"
+                  fill="rgba(255,255,255,0.08)"
+                  stroke="rgba(255,255,255,0.2)"
+                  stroke-width="1.5" />
+                <rect
+                  x="24"
+                  y="24"
+                  width="40"
+                  height="24"
+                  rx="4"
+                  fill="rgba(255,255,255,0.05)"
+                  stroke="rgba(255,255,255,0.15)"
+                  stroke-width="1.5" />
+                <rect
+                  x="36"
+                  y="8"
+                  width="16"
+                  height="20"
+                  rx="2"
+                  fill="rgba(100,116,229,0.4)"
+                  stroke="#6474e5"
+                  stroke-width="1.5" />
+                <line
+                  x1="44"
+                  y1="44"
+                  x2="44"
+                  y2="76"
+                  stroke="rgba(255,255,255,0.12)"
+                  stroke-width="1" />
+              </svg>
+            </div>
+            <div class="about-float">
+              <div class="about-float-n">12</div>
+              <div class="about-float-l">Охин компани</div>
+            </div>
+          </div>
+          <div class="about-cards">
+            <div class="about-card">
+              <h3>
+                <i class="fa-solid fa-circle" aria-hidden="true"></i> Практик
+                суурьтай сургалт
+              </h3>
+              <p>
+                Бодит даалгавар, төсөл, кейс дээр ажиллуулан практикт суурилсан
+                хэлбэрээр хэрэгжүүлдэг.
+              </p>
+            </div>
+            <div class="about-card">
+              <h3>
+                <i class="fa-solid fa-circle" aria-hidden="true"></i> Олон улсын
+                холбоо
+              </h3>
+              <p>
+                Google, Meta, Harvard зэрэг эх сурвалж бүхий агуулга; CAL Japan
+                байгууллагатай хамтран ажиллана.
+              </p>
+            </div>
+            <div class="about-card">
+              <h3>
+                <i class="fa-solid fa-circle" aria-hidden="true"></i> Ажил
+                эрхлэлтийн бодлого
+              </h3>
+              <p>
+                Жил бүр төгсөгчдийн талаас илүү хувь нь шууд ажлын байртайгаар
+                төгсөх зорилт.
+              </p>
+            </div>
+            <div class="about-card">
+              <h3>
+                <i class="fa-solid fa-circle" aria-hidden="true"></i> Сертификат
+                ба диплом
+              </h3>
+              <p>
+                Олон улсад хүлээн зөвшөөрөгдсөн байгууллагуудын сертификатын
+                боломж; 2023 оноос IELTS хичээл нэмэгдсэн
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 MISSION -->
+    <section id="mission" class="sec light">
+      <div class="inner">
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Эрхэм зорилго</span>
+        </div>
+        <h2 class="sec-title">ЗОРИЛГО БА АЛСЫН<br />ХАРААC</h2>
+        <div class="quote-box reveal">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">
+            "Шинэ үеийн залуучуудад богино хугацаанд орчин үеийн технологийн
+            чанартай практик ур чадварыг олгож, хөдөлмөрийн зах зээл дээр шууд
+            ажиллах бодит чадамжийг эзэмшүүлэх."
+          </p>
+          <div class="mission-grid">
+            <div class="mission-col">
+              <div class="mini-label">Эрхэм зорилго</div>
+              <p>
+                Хөдөлмөрийн зах зээлийн эрэлт хэрэгцээнд суурилсан, практик
+                чиглэлтэй богино хугацааны мэргэжилтэн бэлтгэх замаар Монголын
+                залуучуудын ирээдүйд хувь нэмэр оруулах.
+              </p>
+            </div>
+            <div class="mission-col">
+              <div class="mini-label">Ирээдүйн дүр зураг</div>
+              <p>
+                Кампустай болж өргөжин, суралцагчдад сертификат төдийгүй олон
+                улсын түвшний диплом, гадаадын их дээд сургуульд дүйцүүлэн
+                үргэлжлүүлэн суралцах боломжуудыг нээх.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 HISTORY -->
+    <section id="history" class="sec alt">
+      <div class="inner">
+        <div class="tl-header">
+          <div>
+            <div class="eyebrow">
+              <div class="eyebrow-line"></div>
+              <span class="eyebrow-text">Үүсэл хөгжил</span>
+            </div>
+            <h2 class="sec-title">МАНАЙ<br />ТҮҮХ</h2>
+          </div>
+          <p class="tl-sub">2007 оноос 2026 он хүртэлх гол үе шатууд</p>
+        </div>
+        <div class="tl-wrap">
+          <div class="tl-line-col"><div class="tl-vline"></div></div>
+          <div class="tl-items">
+            <div class="tl-item reveal">
+              <div class="tl-dot-wrap"><div class="tl-dot active"></div></div>
+              <div class="tl-content">
+                <div class="tl-year">2007</div>
+                <div class="tl-title">Амжилт Групп байгуулагдав</div>
+                <p class="tl-body">
+                  Шижирийн санаачилгаар мэдээллийн технологийн суурьтай
+                  боловсролыг хөгжүүлэх зорилгоор байгуулагдав.
+                </p>
+              </div>
+            </div>
+            <div class="tl-item reveal">
+              <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+              <div class="tl-content">
+                <div class="tl-year">2016</div>
+                <div class="tl-title">Дижитал Маркетингийн чиглэл нээгдэв</div>
+                <p class="tl-body">
+                  Эрчимтэй өссөн чиг хандлагын нэг болох дижитал маркетер
+                  мэргэжлээр идэвхтэй элсэлт авч эхэлсэн.
+                </p>
+              </div>
+            </div>
+            <div class="tl-item reveal">
+              <div class="tl-dot-wrap">
+                <div class="tl-dot milestone"></div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-year">2018 — Milestone</div>
+                <div class="tl-title">Олон улсын хөтөлбөр нэвтэрлээ</div>
+                <p class="tl-body">
+                  Энэтхэгийн Бангалор хотын технологийн компанитай тогтоосон
+                  харилцаанд тулгуурлан олон улсын хөтөлбөрийг нутагшуулсан. SW,
+                  Graphic Design чиглэлүүд нэмэгдэв.
+                </p>
+              </div>
+            </div>
+            <div class="tl-item reveal">
+              <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+              <div class="tl-content">
+                <div class="tl-year">2018–2023</div>
+                <div class="tl-title">700+ төгсөгч</div>
+                <p class="tl-body">
+                  Таван жилийн хугацаанд 700 гаруй оюутныг амжилттай төгсгөсөн.
+                </p>
+              </div>
+            </div>
+            <div class="tl-item reveal">
+              <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+              <div class="tl-content">
+                <div class="tl-year">2023</div>
+                <div class="tl-title">IELTS нэмэгдэв</div>
+                <p class="tl-body">
+                  Бүх ангид IELTS-ийн онооны хичээл орж эхэлснээр хэлний болон
+                  мэргэжлийн ур чадварыг нэгтгэсэн.
+                </p>
+              </div>
+            </div>
+            <div class="tl-item reveal">
+              <div class="tl-dot-wrap"><div class="tl-dot active"></div></div>
+              <div class="tl-content">
+                <div class="tl-year">2025</div>
+                <div class="tl-title">
+                  Япон хэл & CAL Japan хамтын ажиллагаа
+                </div>
+                <p class="tl-body">
+                  SW чиглэлийн оюутнуудад япон хэл заах ба Японд ажиллах шинэ
+                  боломжийг нээсэн.
+                </p>
+              </div>
+            </div>
+            <div class="tl-item reveal">
+              <div class="tl-dot-wrap">
+                <div class="tl-dot milestone"></div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-year">2026 — Milestone</div>
+                <div class="tl-title">Налайх Кампус нээнэ</div>
+                <p class="tl-body">
+                  Цонжин болдог орчимд 400 оюутны багтаамжтай бүрэн кампус.
+                  Нээлт: 2026 оны 9 дүгээр сарын 1.
+                </p>
+                <div class="tl-milestone-badge">2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 PROGRAMS -->
+    <section id="programs" class="sec alt">
+      <div class="inner">
+        <div class="prog-header">
+          <div>
+            <div class="eyebrow">
+              <div class="eyebrow-line"></div>
+              <span class="eyebrow-text">Сургалтын хөтөлбөр</span>
+            </div>
+            <h2 class="sec-title">6 МЭРГЭЖЛИЙН<br />ЧИГЛЭЛ</h2>
+          </div>
+          <p class="prog-sub">
+            Практик суурьтай, хөдөлмөрийн зах зээлд шууд нийцсэн 6 мэргэшлийн
+            хөтөлбөр.
+          </p>
+        </div>
+        <div class="prog-grid">
+          <!-- SW -->
+          <div class="prog-card c-sw reveal">
+            <div class="prog-visual v-sw">
+              <div class="prog-num">01</div>
+              <div class="prog-icon">
+                <i class="fa-solid fa-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="prog-body">
+              <span class="prog-tag tag-navy">Fullstack Development</span>
+              <div class="prog-title">FULLSTACK<br />DEVELOPER</div>
+              <p class="prog-desc">
+                Front-end, Back-end, UI/UX design ур чадварыг хослуулан
+                эзэмшүүлэх. 2025 оноос Япон хэлний сургалт нэмэгдсэн.
+              </p>
+              <div class="prog-pills">
+                <span class="pill">HTML/CSS</span
+                ><span class="pill">JavaScript</span
+                ><span class="pill">React</span><span class="pill">Node.js</span
+                ><span class="pill">PostgreSQL</span
+                ><span class="pill">日本語</span>
+              </div>
+              <div class="prog-footer">
+                <div>
+                  <div class="prog-dur">9 САР</div>
+                  <div class="prog-dur-sub">83 элсэлт · 15,000,000₮</div>
+                </div>
+                <div class="prog-arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <!-- DM -->
+          <div class="prog-card c-dm reveal">
+            <div class="prog-visual v-dm">
+              <div class="prog-num">02</div>
+              <div class="prog-icon">
+                <i class="fa-solid fa-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="prog-body">
+              <span class="prog-tag tag-gold">Digital Marketing</span>
+              <div class="prog-title">DIGITAL<br />MARKETING</div>
+              <p class="prog-desc">
+                Контент стратеги, сурталчилгаа, аналитик, онол-практик хосолсон
+                ур чадвар.
+              </p>
+              <div class="prog-pills">
+                <span class="pill">SEO/SEM</span
+                ><span class="pill">Meta Ads</span
+                ><span class="pill">Google Ads</span
+                ><span class="pill">Content</span
+                ><span class="pill">Analytics</span>
+              </div>
+              <div class="prog-footer">
+                <div>
+                  <div class="prog-dur">9 САР</div>
+                  <div class="prog-dur-sub">81 элсэлт · 15,000,000₮</div>
+                </div>
+                <div class="prog-arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <!-- EN -->
+          <div class="prog-card c-en reveal">
+            <div class="prog-visual v-en">
+              <div class="prog-num">03</div>
+              <div class="prog-icon">
+                <i class="fa-solid fa-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="prog-body">
+              <span class="prog-tag tag-green">Хэлний сургалт</span>
+              <div class="prog-title">АНГЛИ<br />ХЭЛ</div>
+              <p class="prog-desc">
+                IELTS чиглэлтэй, мэргэжлийн болон олон улсын харилцаанд бэлтгэх
+                хэлний хөтөлбөр.
+              </p>
+              <div class="prog-pills">
+                <span class="pill">IELTS</span><span class="pill">Speaking</span
+                ><span class="pill">Writing</span
+                ><span class="pill">Business English</span>
+              </div>
+              <div class="prog-footer">
+                <div>
+                  <div class="prog-dur">Уян</div>
+                  <div class="prog-dur-sub">25 элсэлт · 8,000,000₮</div>
+                </div>
+                <div class="prog-arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <!-- CN -->
+          <div class="prog-card c-cn reveal">
+            <div class="prog-visual v-cn">
+              <div class="prog-num">04</div>
+              <div class="prog-icon">
+                <i class="fa-solid fa-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="prog-body">
+              <span class="prog-tag tag-yellow">Хэлний сургалт</span>
+              <div class="prog-title">ХЯТАД<br />ХЭЛ</div>
+              <p class="prog-desc">
+                Бизнес болон академик зорилгоор хятад хэлний чадварыг эзэмшүүлэх
+                мэргэшсэн хөтөлбөр.
+              </p>
+              <div class="prog-pills">
+                <span class="pill">HSK</span><span class="pill">Speaking</span
+                ><span class="pill">Business Chinese</span
+                ><span class="pill">Characters</span>
+              </div>
+              <div class="prog-footer">
+                <div>
+                  <div class="prog-dur">Уян</div>
+                  <div class="prog-dur-sub">25 элсэлт · 8,000,000₮</div>
+                </div>
+                <div class="prog-arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <!-- SK -->
+          <div class="prog-card c-sk reveal">
+            <div class="prog-visual v-sk">
+              <div class="prog-num">05</div>
+              <div class="prog-icon">
+                <i class="fa-solid fa-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="prog-body">
+              <span class="prog-tag tag-pink">Skillcraft</span>
+              <div class="prog-title">ТОГЛООМ<br />ХӨГЖҮҮЛЭЛТ</div>
+              <p class="prog-desc">
+                15–18 насны залуучуудад зориулсан тоглоом хөгжүүлэлтийн практик
+                анги.
+              </p>
+              <div class="prog-pills">
+                <span class="pill">Game Design</span
+                ><span class="pill">Unity</span><span class="pill">Logic</span
+                ><span class="pill">Programming</span>
+              </div>
+              <div class="prog-footer">
+                <div>
+                  <div class="prog-dur">1–3 САР</div>
+                  <div class="prog-dur-sub">35 элсэлт · Тусдаа</div>
+                </div>
+                <div class="prog-arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <!-- LT -->
+          <div class="prog-card c-lt reveal">
+            <div class="prog-visual v-lt">
+              <div class="prog-num">06</div>
+              <div class="prog-icon">
+                <i class="fa-solid fa-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="prog-body">
+              <span class="prog-tag tag-gray">LITE хөтөлбөр</span>
+              <div class="prog-title">МЭРГЭШҮҮЛЭХ<br />АНГИУД</div>
+              <p class="prog-desc">
+                Онлайн бизнес эрхлэгчид, STARTUP-уудад зориулсан WinterGAP болон
+                богино сургалтууд.
+              </p>
+              <div class="prog-pills">
+                <span class="pill">SW LITE</span
+                ><span class="pill">DM LITE</span
+                ><span class="pill">WinterGAP</span
+                ><span class="pill">6 сар</span>
+              </div>
+              <div class="prog-footer">
+                <div>
+                  <div class="prog-dur">6 САР</div>
+                  <div class="prog-dur-sub">SW + DM чиглэл</div>
+                </div>
+                <div class="prog-arrow">→</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 ENROLLMENT STATS -->
+    <section id="stats" class="sec alt">
+      <div class="inner">
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Элсэлтийн мэдээлэл</span>
+        </div>
+        <h2 class="sec-title">ЖИЛ БҮРИЙН<br />ӨСӨЛТ</h2>
+        <div class="stats-grid">
+          <div class="yr-card reveal">
+            <div class="yr-label">2023–2024 оны жил</div>
+            <div class="yr-total" style="color: var(--navy)">160</div>
+            <div class="yr-list">
+              <div class="yr-row">
+                <div class="dot" style="background: var(--navy)"></div>
+                SW (9 сар) — 40
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: var(--blue-light)"></div>
+                DM (9 сар) — 40
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: #ec4899"></div>
+                График дизайн — 40
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: var(--gold)"></div>
+                SW LITE — 20
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: var(--blue-pale)"></div>
+                DM LITE — 20
+              </div>
+            </div>
+          </div>
+          <div class="yr-card reveal">
+            <div class="yr-label">2024–2025 оны жил</div>
+            <div class="yr-total" style="color: var(--blue)">256</div>
+            <div class="yr-list">
+              <div class="yr-row">
+                <div class="dot" style="background: var(--navy)"></div>
+                SW (9 сар) — 50
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: var(--blue-light)"></div>
+                DM (9 сар) — 25
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: #ec4899"></div>
+                График дизайн — 16
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: var(--gold)"></div>
+                SW LITE — 20
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: #86198f"></div>
+                Skillcraft — 40
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: var(--muted)"></div>
+                Индра ЕБС — 105
+              </div>
+            </div>
+          </div>
+          <div class="yr-card reveal">
+            <div class="yr-label">2025–2026 оны жил</div>
+            <div class="yr-total" style="color: #22c55e">251</div>
+            <div class="yr-list">
+              <div class="yr-row">
+                <div class="dot" style="background: var(--navy)"></div>
+                SW (9 сар) — 83
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: var(--blue-light)"></div>
+                DM (9 сар) — 81
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: var(--gold)"></div>
+                WinterGAP — 39
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: var(--blue-pale)"></div>
+                DM LITE — 13
+              </div>
+              <div class="yr-row">
+                <div class="dot" style="background: #86198f"></div>
+                Skillcraft — 35
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="target-strip reveal">
+          <div class="ts-left">
+            <div class="ts-lbl">2026 Зорилт</div>
+            <div class="ts-num">600</div>
+            <div class="ts-sub">Нийт элсэлт: Институт 200 + Кампус 400</div>
+          </div>
+          <div class="ts-chips">
+            <div class="ts-chip gold">Институт 200</div>
+            <div class="ts-chip ghost">Кампус 400</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 PRICING -->
+    <section class="pricing sec alt" id="pricing">
+      <div class="inner">
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Үнийн бүтэц</span>
+        </div>
+        <h2 class="sec-title">2026 оны элсэлт, санхүүгийн зорилт</h2>
+        <div class="pricing-tabs">
+          <button class="pricing-tab active" onclick="showTable('institute')">
+            Индра Институт
+          </button>
+          <button class="pricing-tab" onclick="showTable('campus')">
+            Индра Кампус
+          </button>
+        </div>
+
+        <div class="pricing-table active" id="table-institute">
+          <table>
+            <thead>
+              <tr>
+                <th>Хөтөлбөр</th>
+                <th>Үндсэн үнэ</th>
+                <th>Хөнгөлөлт</th>
+                <th>Хөнгөлөлттэй үнэ</th>
+                <th>Элсэлт</th>
+                <th>Орлого</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Программ хангамж (SW)</td>
+                <td>15,000,000₮</td>
+                <td>20%</td>
+                <td>12,000,000₮</td>
+                <td>75</td>
+                <td>900,000,000₮</td>
+              </tr>
+              <tr>
+                <td>Дижитал маркетинг (DM)</td>
+                <td>15,000,000₮</td>
+                <td>20%</td>
+                <td>12,000,000₮</td>
+                <td>75</td>
+                <td>900,000,000₮</td>
+              </tr>
+              <tr>
+                <td>Англи хэл</td>
+                <td>8,000,000₮</td>
+                <td>20%</td>
+                <td>6,400,000₮</td>
+                <td>25</td>
+                <td>160,000,000₮</td>
+              </tr>
+              <tr>
+                <td>Хятад хэл</td>
+                <td>8,000,000₮</td>
+                <td>20%</td>
+                <td>6,400,000₮</td>
+                <td>25</td>
+                <td>160,000,000₮</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="pricing-total">
+            <div class="pricing-total-label">
+              Институтын нийт орлогын зорилт
+            </div>
+            <div class="pricing-total-val">2,120,000,000₮</div>
+          </div>
+        </div>
+
+        <div class="pricing-table" id="table-campus">
+          <table>
+            <thead>
+              <tr>
+                <th>Хөтөлбөр</th>
+                <th>Үндсэн үнэ</th>
+                <th>Хөнгөлөлт</th>
+                <th>Хөнгөлөлттэй үнэ</th>
+                <th>Элсэлт</th>
+                <th>Орлого</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Программ хангамж (SW)</td>
+                <td>21,000,000₮</td>
+                <td>20%</td>
+                <td>16,800,000₮</td>
+                <td>200</td>
+                <td>3,360,000,000₮</td>
+              </tr>
+              <tr>
+                <td>Дижитал маркетинг (DM)</td>
+                <td>21,000,000₮</td>
+                <td>20%</td>
+                <td>16,800,000₮</td>
+                <td>200</td>
+                <td>3,360,000,000₮</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="pricing-total">
+            <div class="pricing-total-label">Кампусын нийт орлогын зорилт</div>
+            <div class="pricing-total-val">6,720,000,000₮</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 CAMPUS -->
+    <section id="campus" class="sec light">
+      <div class="inner">
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Шинэ Кампус</span>
+        </div>
+        <h2 class="sec-title">
+          НАЛАЙХ ДҮҮРЭГТ<br />БАЙГУУЛАГДАХ<br />ИНДРА КАМПУС
+        </h2>
+        <div class="campus-highlight reveal">
+          <div>
+            <h3>
+              <i class="fa-solid fa-circle" aria-hidden="true"></i> 2026 оны 9
+              дүгээр сарын 1 — Кампус нээнэ
+            </h3>
+            <p>
+              Улаанбаатар хотын Налайх дүүргийн Цонжин болдог орчимд
+              байгуулагдах шинэ кампус. Бүтэн дотуур байр, хоолны газар, орчин
+              үеийн хичээлийн танхимтай бүрэн кампус байгуулагдана.
+            </p>
+          </div>
+          <div class="campus-badges">
+            <div class="campus-badge gold">
+              <div class="campus-badge-n">400</div>
+              <div class="campus-badge-l">Оюутны багтаамж</div>
+            </div>
+            <div class="campus-badge white">
+              <div class="campus-badge-n">16</div>
+              <div class="campus-badge-l">Хичээлийн танхим</div>
+            </div>
+          </div>
+        </div>
+        <div class="campus-grid">
+          <div class="campus-card reveal">
+            <div class="campus-icon">
+              <i class="fa-solid fa-circle" aria-hidden="true"></i>
+            </div>
+            <h3>Дотуур байр</h3>
+            <p>
+              400 оюутны багтаамжтай. Нэг өрөөнд 4 оюутан, нийт 4 давхар, давхар
+              бүрд 10 өрөө. Эрэгтэй, эмэгтэйгээрээ тусдаа.
+            </p>
+          </div>
+          <div class="campus-card reveal">
+            <div class="campus-icon">
+              <i class="fa-solid fa-circle" aria-hidden="true"></i>
+            </div>
+            <h3>Хоолны газар</h3>
+            <p>
+              Нэг дор 400 хүний хүчин чадалтай хоол үйлдвэрлэл, үйлчилгээний
+              зориулалттай газар.
+            </p>
+          </div>
+          <div class="campus-card reveal">
+            <div class="campus-icon">
+              <i class="fa-solid fa-circle" aria-hidden="true"></i>
+            </div>
+            <h3>Хичээлийн танхим</h3>
+            <p>
+              Нэг ангид 25 оюутан суралцах боломжтой 16 хичээлийн танхим. Орчин
+              үеийн тоног төхөөрөмжтэй.
+            </p>
+          </div>
+          <div class="campus-card reveal">
+            <div class="campus-icon">
+              <i class="fa-solid fa-circle" aria-hidden="true"></i>
+            </div>
+            <h3>Багш, ажилчдын байр</h3>
+            <p>
+              Нэг өрөөнд 2 ажилтан байрлах боломжтой, нийт 10 өрөөтэй тусдаа
+              блок.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 PARTNERS -->
+    <section id="partners" class="sec alt">
+      <div class="inner">
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Олон улсын холбоо</span>
+        </div>
+        <h2 class="sec-title">СЕРТИФИКАТ БА<br />ТҮНШЛЭЛ</h2>
+        <div class="partners-pills">
+          <div class="partner-pill">
+            <div class="pd"></div>
+            <span>Google</span>
+          </div>
+          <div class="partner-pill">
+            <div class="pd"></div>
+            <span>Meta</span>
+          </div>
+          <div class="partner-pill">
+            <div class="pd"></div>
+            <span>Harvard</span>
+          </div>
+          <div class="partner-pill">
+            <div class="pd"></div>
+            <span>CAL Japan</span>
+          </div>
+          <div class="partner-pill">
+            <div class="pd"></div>
+            <span>IELTS</span>
+          </div>
+          <div class="partner-pill">
+            <div class="pd"></div>
+            <span>Bangalore Tech</span>
+          </div>
+          <div class="partner-pill">
+            <div class="pd"></div>
+            <span>Амжилт Групп</span>
+          </div>
+        </div>
+        <p class="partners-desc">
+          Суралцагчдад олон улсад хүлээн зөвшөөрөгдсөн байгууллагуудын
+          сертификатын боломжийг нээж, Google, Meta, Harvard зэрэг эх сурвалж
+          бүхий сургалтын агуулгыг хөтөлбөрт шингээн хэрэгжүүлэх чиглэл
+          баримталдаг. 2025 оноос CAL Japan-тай хамтран Японд ажиллах шинэ
+          боломж нэмэгдсэн.
         </p>
       </div>
+    </section>
 
-      <div class="progs-grid">
-        <!-- FULLSTACK -->
-        <div class="pc fs">
-          <div class="pc-vis">
-            <img
-              src="./assets/3dicons-computer-front-color.png"
-              alt="Fullstack Development"
-              width="40"
-              height="40" />
-            <div class="pc-vnum">01</div>
-          </div>
-          <div class="pc-body">
-            <span class="pc-tag">Fullstack Development</span>
-            <div class="pc-name">FULLSTACK<br />DEVELOPER</div>
-            <p class="pc-desc">
-              Frontend-аас backend хүртэл бүтэн stack эзэмшиж, бодит веб апп
-              хөгжүүлнэ. React, Node.js, database болон REST API практикаар
-              суралцана.
-            </p>
-            <div class="pc-pills">
-              <span class="pc-pill">HTML/CSS</span>
-              <span class="pc-pill">JavaScript</span>
-              <span class="pc-pill">React</span>
-              <span class="pc-pill">Node.js</span>
-              <span class="pc-pill">PostgreSQL</span>
-              <span class="pc-pill">Git</span>
-            </div>
-            <div class="pc-ft">
-              <div>
-                <div class="pc-dur">6 САР</div>
-                <div class="pc-dur-s">Хагас бүтэн цагийн</div>
-              </div>
-              <div class="pc-arrow">→</div>
-            </div>
-          </div>
+    <!-- 10 FUTURE -->
+    <section id="future" class="sec light">
+      <div class="inner">
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Ирээдүйн төлөвлөгөө</span>
         </div>
-        <!-- DIGITAL MARKETING -->
-        <div class="pc dm">
-          <div class="pc-vis">
-            📈
-            <div class="pc-vnum">02</div>
-          </div>
-          <div class="pc-body">
-            <span class="pc-tag">Digital Marketing</span>
-            <div class="pc-name">DIGITAL<br />MARKETING</div>
-            <p class="pc-desc">
-              Брэнд бүтээх, онлайн сурталчилгаа, SEO болон дата шинжилгээгээр
-              дижитал маркетингийн мэргэжилтэн болно.
+        <h2 class="sec-title">2026–2027 ОНЫ<br />СТРАТЕГИ</h2>
+        <div class="future-grid">
+          <div class="future-card reveal">
+            <div class="future-card-wm">01</div>
+            <h3>🎓 Олон улсын Диплом</h3>
+            <p>
+              Олон улсын бакалаврын диплом олгох, гадаадын их дээд сургуульд 2-р
+              курсээс дүйцүүлэн үргэлжлүүлэн суралцах боломж нээгдэнэ.
             </p>
-            <div class="pc-pills">
-              <span class="pc-pill">SEO/SEM</span>
-              <span class="pc-pill">Meta Ads</span>
-              <span class="pc-pill">Google Ads</span>
-              <span class="pc-pill">Content</span>
-              <span class="pc-pill">Analytics</span>
-              <span class="pc-pill">Strategy</span>
-            </div>
-            <div class="pc-ft">
-              <div>
-                <div class="pc-dur">4 САР</div>
-                <div class="pc-dur-s">Уян хатан цагийн</div>
-              </div>
-              <div class="pc-arrow">→</div>
-            </div>
           </div>
-        </div>
-        <!-- GRAPHIC DESIGN -->
-        <div class="pc gd">
-          <div class="pc-vis">
-            🎨
-            <div class="pc-vnum">03</div>
-          </div>
-          <div class="pc-body">
-            <span class="pc-tag">Graphic Design</span>
-            <div class="pc-name">GRAPHIC<br />DESIGN</div>
-            <p class="pc-desc">
-              Визуал дизайны суурь зарчим, брэндинг, UI/UX болон Adobe & Figma
-              хэрэгслээр мэргэжлийн portfolio бүтээнэ.
+          <div class="future-card reveal">
+            <div class="future-card-wm">02</div>
+            <h3>🌏 Японд ажиллах</h3>
+            <p>
+              CAL байгууллагатай хамтран Японд ажиллах боломжийг нээж, олон
+              улсын зах зээлд гарах замыг тэлнэ.
             </p>
-            <div class="pc-pills">
-              <span class="pc-pill">Figma</span>
-              <span class="pc-pill">Illustrator</span>
-              <span class="pc-pill">Photoshop</span>
-              <span class="pc-pill">Брэндинг</span>
-              <span class="pc-pill">UI/UX</span>
-              <span class="pc-pill">Typography</span>
+          </div>
+          <div class="future-card reveal">
+            <div class="future-card-wm">03</div>
+            <h3>🏫 Кампус нээлт</h3>
+            <p>
+              Налайх дүүрэгт 400 оюутны багтаамжтай бүрэн кампус байгуулж, 2026
+              оны 9 дүгээр сарын 1-нд нээнэ.
+            </p>
+          </div>
+          <div class="future-card wide reveal">
+            <div class="future-card-wm">05</div>
+            <h3>
+              <i class="fa-solid fa-circle" aria-hidden="true"></i> Санхүүгийн
+              зорилт
+            </h3>
+            <p>
+              Институт 2,120,000,000₮ + Кампус 6,720,000,000₮ — Нийт орлогын
+              зорилт
+            </p>
+            <div class="future-stat-n">8,840,000,000₮</div>
+            <div class="future-stat-s">
+              Нийт орлогын зорилт · Суралцагчид 600 хүрэх
             </div>
-            <div class="pc-ft">
-              <div>
-                <div class="pc-dur">5 САР</div>
-                <div class="pc-dur-s">Практик суурьтай</div>
-              </div>
-              <div class="pc-arrow">→</div>
-            </div>
+          </div>
+          <div class="future-card reveal">
+            <div class="future-card-wm">06</div>
+            <h3>🔬 Сургалтын чанар</h3>
+            <p>
+              Хөдөлмөрийн зах зээлийн хэрэгцээг тогтмол судалж хөтөлбөрөө
+              шинэчилдэг тогтолцоог бүрэн хэрэгжүүлнэ.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="eyebrow">Бидний тухай</div>
-      <h2 class="sec-title">
-        2018 ОНООС ХОЙШ<br />ДИЖИТАЛ ИРЭЭДҮЙГ<br />БЭЛТГЭДЭГ
-      </h2>
-      <div class="about-grid">
-        <div class="about-vis">
-          <div class="about-box">
-            <span class="about-box-emoji" aria-hidden="true">🏛️</span>
-            <div class="about-float">500+<span>Нийт төгсөгч</span></div>
+    <!-- 11 CTA -->
+    <section id="cta">
+      <div class="cta-wm">ICI</div>
+      <div class="cta-inner">
+        <div class="cta-left">
+          <div class="eyebrow">
+            <div class="eyebrow-line"></div>
+            <span class="eyebrow-text">Элсэх</span>
           </div>
-        </div>
-        <div class="about-text">
-          <p class="about-p">
-            Indra Cyber Institute нь 2018 онд үүсгэн байгуулагдсан бөгөөд Монгол
-            улсад дижитал мэргэжлүүдийн чиглэлээр — Fullstack хөгжүүлэлт,
-            Digital маркетинг, Graphic дизайн — өндөр чанарын сургалт явуулдаг.
+          <div class="cta-title">КАРЬЕРИЙН<br />АЯЛЛАА ЭХЛҮҮЛ</div>
+          <p class="cta-body">
+            Индра Кибер Институт таны мэргэжлийн ирээдүйд хөрөнгө оруулна. Одоо
+            элсэж, мэргэжилтэн болох эхний алхмаа хий.
           </p>
-          <p class="about-p">
-            Манай сургалт нь онолоос илүүтэйгээр практикт анхаарна. Суралцагч
-            бүр бодит portfolio бүтээж, ажил олгогчтой холбогдох боломжтой.
-          </p>
-          <div class="about-list">
-            <div class="about-li">
-              <div class="about-dot"></div>
-              Мэргэжлийн багш нар — 5+ жилийн туршлагатай
-            </div>
-            <div class="about-li">
-              <div class="about-dot"></div>
-              Portfolio-д суурилсан сургалтын арга зүй
-            </div>
-            <div class="about-li">
-              <div class="about-dot"></div>
-              Онлайн болон танхимын хосолсон хэлбэр
-            </div>
-            <div class="about-li">
-              <div class="about-dot"></div>
-              Ажилд зуучлалын дэмжлэг — 98% амжилттай
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section id="why">
-      <div class="eyebrow">Яагаад бидэн дээр</div>
-      <h2 class="sec-title">БИД ЮУГААРАА<br />ЯЛГАРАХ ВЭ</h2>
-      <div class="why-layout">
-        <div class="why-items">
-          <div class="why-row">
-            <div class="why-n">01</div>
-            <div>
-              <div class="why-h">Практик суурьтай сургалт</div>
-              <p class="why-p">
-                Онол биш практик. Суралцагч бүр бодит project хийж, portfolio
-                бүтээнэ. Ажил олгогч таны ажлыг шууд харах боломжтой.
-              </p>
-            </div>
-          </div>
-          <div class="why-row">
-            <div class="why-n">02</div>
-            <div>
-              <div class="why-h">Мэргэжлийн багш нар</div>
-              <p class="why-p">
-                Манай бүх багш нар тухайн салбарт 5+ жил ажилласан
-                мэргэжилтнүүд. Classroom-аас гадна 1:1 mentorship хийнэ.
-              </p>
-            </div>
-          </div>
-          <div class="why-row">
-            <div class="why-n">03</div>
-            <div>
-              <div class="why-h">Уян хатан цагийн хуваарь</div>
-              <p class="why-p">
-                Өдрийн болон оройн анги, онлайн болон танхим. Таны амьдралын
-                хэвшилд тохирсон хуваарь.
-              </p>
-            </div>
-          </div>
-          <div class="why-row">
-            <div class="why-n">04</div>
-            <div>
-              <div class="why-h">Ажилд зуучлалын дэмжлэг</div>
-              <p class="why-p">
-                Монголын тэргүүлэх компаниудтай түншилсэн. Төгсөгчдийн 98% нь 3
-                сарын дотор ажлын байр эзэлдэг.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="why-right">
-          <div class="track-row fs">
-            <div class="track-icon">💻</div>
-            <div class="track-row-body">
-              <div class="track-nm">Fullstack Developer</div>
-              <div class="track-sk">React · Node.js · PostgreSQL</div>
-            </div>
-            <div class="track-dur">6 САР</div>
-          </div>
-          <div class="track-row dm">
-            <div class="track-icon">📈</div>
-            <div class="track-row-body">
-              <div class="track-nm">Digital Marketing</div>
-              <div class="track-sk">SEO · Meta Ads · Analytics</div>
-            </div>
-            <div class="track-dur">4 САР</div>
-          </div>
-          <div class="track-row gd">
-            <div class="track-icon">🎨</div>
-            <div class="track-row-body">
-              <div class="track-nm">Graphic Design</div>
-              <div class="track-sk">Figma · Illustrator · Branding</div>
-            </div>
-            <div class="track-dur">5 САР</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-q">"</div>
-            <p class="testi-t">
-              Indra Cyber Institute-д суралцсаны дараа 2 сарын дотор frontend
-              developer болж ажилд орлоо.
-            </p>
-            <div class="testi-who">
-              <div class="testi-av">Б</div>
-              <div>
-                <div class="testi-name">Б. Ганзориг</div>
-                <div class="testi-role">
-                  Fullstack Developer · 2024 оны төгсөгч
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEAM -->
-    <section id="team">
-      <div class="eyebrow">Манай баг</div>
-      <h2 class="sec-title">МЭРГЭЖЛИЙН<br />СУРГАГЧ БАГШ НАР</h2>
-      <div class="team-grid">
-        <div class="tc">
-          <div class="tc-av">Б.И</div>
-          <div class="tc-name">Б. Индра</div>
-          <div class="tc-role">Үүсгэн байгуулагч & CEO</div>
-          <div class="tc-pills">
-            <span class="tc-pill">Fullstack</span
-            ><span class="tc-pill">Strategy</span>
-          </div>
-        </div>
-        <div class="tc">
-          <div class="tc-av tc-av--blue">Д.М</div>
-          <div class="tc-name">Д. Мөнхбат</div>
-          <div class="tc-role">Ахлах хөгжүүлэгч багш</div>
-          <div class="tc-pills">
-            <span class="tc-pill">React</span
-            ><span class="tc-pill">Node.js</span>
-          </div>
-        </div>
-        <div class="tc">
-          <div class="tc-av tc-av--gold">Н.О</div>
-          <div class="tc-name">Н. Отгонбаяр</div>
-          <div class="tc-role">Digital Marketing багш</div>
-          <div class="tc-pills">
-            <span class="tc-pill">Meta Ads</span
-            ><span class="tc-pill">SEO</span>
-          </div>
-        </div>
-        <div class="tc">
-          <div class="tc-av tc-av--purple">Э.Н</div>
-          <div class="tc-name">Э. Нарантуяа</div>
-          <div class="tc-role">Graphic Design багш</div>
-          <div class="tc-pills">
-            <span class="tc-pill">Figma</span
-            ><span class="tc-pill">Branding</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="contact-layout">
-        <form class="contact-form" action="#" method="post">
-          <div class="fg">
-            <label class="fl" for="c-name">Таны нэр</label
-            ><input
-              class="fi"
-              id="c-name"
-              name="name"
-              type="text"
-              autocomplete="name"
-              placeholder="Таны нэр" />
-          </div>
-          <div class="fg">
-            <label class="fl" for="c-email">И-мэйл</label
-            ><input
-              class="fi"
-              id="c-email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              placeholder="example@mail.com" />
-          </div>
-          <div class="fg">
-            <label class="fl" for="c-phone">Утас</label
-            ><input
-              class="fi"
-              id="c-phone"
-              name="phone"
-              type="tel"
-              autocomplete="tel"
-              placeholder="+976 _ _ _ _ _ _ _ _" />
-          </div>
-          <div class="fg">
-            <label class="fl" for="c-course">Сургалт</label
-            ><input
-              class="fi"
-              id="c-course"
-              name="course"
-              type="text"
-              placeholder="Fullstack, Digital Marketing, Graphic Design..." />
-          </div>
-          <div class="fg">
-            <label class="fl" for="c-msg">Асуулт</label
-            ><textarea
-              class="fi"
-              id="c-msg"
-              name="message"
-              rows="5"
-              placeholder="Таны асуулт..."></textarea>
-          </div>
-          <button type="submit" class="fs-btn">Илгээх →</button>
-        </form>
-        <div class="ci-box">
-          <h2 class="ci-big">БИДЭНТЭЙ ХОЛБОГДООРОЙ</h2>
-          <p class="ci-sub">
-            Та аль ч цагт асуулт тавих боломжтой. Манай баг 24 цагийн дотор
-            хариу өгнө.
-          </p>
-          <div class="ci-rows">
-            <div class="ci-row">
-              <div class="ci-icon" aria-hidden="true">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8">
-                  <path
-                    d="M12 21s-8-4.5-8-11a8 8 0 0 1 16 0c0 6.5-8 11-8 11z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </div>
-              <div>
-                <div class="ci-lb">Хаяг</div>
-                <div class="ci-vl">Улаанбаатар хот, Сүхбаатар дүүрэг</div>
-              </div>
-            </div>
-            <div class="ci-row">
-              <div class="ci-icon" aria-hidden="true">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8">
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-              </div>
-              <div>
-                <div class="ci-lb">Утас</div>
-                <div class="ci-vl">+976 _ _ _ _ _ _ _ _</div>
-              </div>
-            </div>
-            <div class="ci-row">
-              <div class="ci-icon" aria-hidden="true">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8">
-                  <rect x="2" y="4" width="20" height="16" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-              </div>
-              <div>
-                <div class="ci-lb">И-мэйл</div>
-                <div class="ci-vl">
-                  <a href="mailto:info@indracyber.mn">info@indracyber.mn</a>
-                </div>
-              </div>
-            </div>
-            <div class="ci-row">
-              <div class="ci-icon" aria-hidden="true">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" />
-                </svg>
-              </div>
-              <div>
-                <div class="ci-lb">Нийгмийн сүлжээ</div>
-                <div class="ci-vl ci-social">
-                  <a href="#" rel="noopener noreferrer">Facebook</a
-                  ><span class="ci-dot">·</span
-                  ><a href="#" rel="noopener noreferrer">Instagram</a
-                  ><span class="ci-dot">·</span
-                  ><a href="#" rel="noopener noreferrer">LinkedIn</a>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="cta-btns">
+          <button class="btn-white">Элсэх →</button>
+          <button class="btn-outline-w">Холбоо барих</button>
         </div>
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-      <div class="ft-top">
-        <div>
-          <div class="ft-brand-nm">
-            <span class="ft-mark" aria-hidden="true">ICI</span
-            ><span>INDRA CYBER INSTITUTE</span>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div>
+            <div class="footer-brand-mark">ICI</div>
+            <div class="footer-brand-name">ИНДРА КИБЕР ИНСТИТУТ</div>
+            <p class="footer-tagline">
+              Амжилт Группийн хүрээнд үйл ажиллагаа явуулдаг мэргэжлийн дижитал
+              боловсролын төв.
+            </p>
           </div>
-          <p class="ft-p">
-            Монголын дижитал мэргэжлүүдийн тэргүүлэх сургалтын төв. Fullstack ·
-            Marketing · Design.
-          </p>
+          <div>
+            <div class="footer-col-title">Сургалт</div>
+            <ul class="footer-links">
+              <li><a href="#">Fullstack Developer</a></li>
+              <li><a href="#">Digital Marketing</a></li>
+              <li><a href="#">Англи хэл</a></li>
+              <li><a href="#">Хятад хэл</a></li>
+              <li><a href="#">Skillcraft</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Компани</div>
+            <ul class="footer-links">
+              <li><a href="#">Бидний тухай</a></li>
+              <li><a href="#">Баг</a></li>
+              <li><a href="#">Мэдээ</a></li>
+              <li><a href="#">Налайх Кампус</a></li>
+              <li><a href="#">Ажлын байр</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Холбоо</div>
+            <ul class="footer-links">
+              <li><a href="tel:72773040">7277 3040</a></li>
+              <li>
+                <a
+                  href="/cdn-cgi/l/email-protection#a6cfc8d5d2cfd2d3d2c3e6c7cbcccfcad288c5c9cb"
+                  ><span
+                    class="__cf_email__"
+                    data-cfemail="d6bfb8a5a2bfa2a3a2b396b7bbbcbfbaa2f8b5b9bb"
+                    >[email&#160;protected]</span
+                  ></a
+                >
+              </li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#" class="gold">indracyberinstitute.com</a></li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <div class="ft-col-t">Сургалт</div>
-          <ul class="ft-links">
-            <li><a href="./pages/programs.html">Fullstack Developer</a></li>
-            <li><a href="./pages/programs.html">Digital Marketing</a></li>
-            <li><a href="./pages/programs.html">Graphic Design</a></li>
-          </ul>
+        <div class="footer-bottom">
+          <span class="footer-copy"
+            >© 2026 Индра Кибер Институт · Амжилт Групп компанийн хүрээнд</span
+          >
+          <span class="footer-links-b"
+            ><a href="#">Нууцлалын бодлого</a> ·
+            <a href="#">Үйлчилгээний нөхцөл</a></span
+          >
         </div>
-        <div>
-          <div class="ft-col-t">Компани</div>
-          <ul class="ft-links">
-            <li><a href="#about">Бидний тухай</a></li>
-            <li><a href="./pages/team.html">Баг</a></li>
-            <li><a href="#">Мэдээ</a></li>
-            <li><a href="#">Ажлын байр</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="ft-col-t">Холбоо</div>
-          <ul class="ft-links">
-            <li><a href="#contact">Холбоо барих</a></li>
-            <li><a href="#" rel="noopener noreferrer">Facebook</a></li>
-            <li><a href="#" rel="noopener noreferrer">Instagram</a></li>
-            <li><a href="#" rel="noopener noreferrer">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="ft-bottom">
-        <span class="ft-copy"
-          >© 2026 <span class="ft-gold">Indra Cyber Institute</span> — Бүх эрх
-          хуулиар хамгаалагдсан</span
-        >
-        <span class="ft-legal"
-          ><a href="#">Нууцлалын бодлого</a><span class="ft-legal-sep"> · </span
-          ><a href="#">Үйлчилгээний нөхцөл</a></span
-        >
       </div>
     </footer>
-    <script src="./js/render-content.js" defer></script>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+      const revealEls = document.querySelectorAll(".reveal");
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        {threshold: 0.12},
+      );
+      revealEls.forEach((el) => obs.observe(el));
+
+      const navLinks = document.querySelectorAll(".nav-links a");
+      const sections = document.querySelectorAll("section[id]");
+
+      function showTable(type) {
+        document
+          .querySelectorAll(".pricing-tab")
+          .forEach((btn) => btn.classList.remove("active"));
+        document
+          .querySelectorAll(".pricing-table")
+          .forEach((table) => table.classList.remove("active"));
+        const tabBtn =
+          type === "campus"
+            ? document.querySelector(".pricing-tabs .pricing-tab:nth-child(2)")
+            : document.querySelector(".pricing-tabs .pricing-tab:nth-child(1)");
+        const tableEl = document.getElementById(`table-${type}`);
+        if (tabBtn) tabBtn.classList.add("active");
+        if (tableEl) tableEl.classList.add("active");
+      }
+
+      function updateActiveNav() {
+        const current = Array.from(sections).find((section) => {
+          const rect = section.getBoundingClientRect();
+          return rect.top <= 120 && rect.bottom > 120;
+        });
+
+        if (!current) return;
+
+        navLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          link.classList.toggle("active", href === `#${current.id}`);
+        });
+      }
+
+      window.addEventListener("scroll", updateActiveNav, {passive: true});
+      window.addEventListener("load", updateActiveNav);
+
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const id = a.getAttribute("href");
+          const target = id ? document.querySelector(id) : null;
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({behavior: "smooth", block: "start"});
+        });
+      });
+
+      document
+        .querySelectorAll(
+          ".about-card,.prog-card,.yr-card,.campus-card,.future-card,.partner-pill,.pricing-table,.pricing-total",
+        )
+        .forEach((el) => el.classList.add("card-effect"));
+    </script>
   </body>
 </html>
