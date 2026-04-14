@@ -48,7 +48,7 @@
         overflow-x: hidden;
       }
 
-      /* ── NAV ── */
+      /* NAV */
       nav {
         position: fixed;
         top: 0;
@@ -71,10 +71,9 @@
         text-decoration: none;
       }
       .logo-icon {
-        width: 34px;
-        height: 34px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        width: 120px;
+        height: 120px;
+
         border-radius: 8px;
         display: flex;
         align-items: center;
@@ -82,8 +81,8 @@
         flex-shrink: 0;
       }
       .logo-icon img {
-        width: 34px;
-        height: 34px;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
         display: block;
         filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35));
@@ -124,20 +123,6 @@
         display: flex;
         align-items: center;
         gap: 12px;
-      }
-      .search-pill {
-        border: 1px solid var(--border);
-        border-radius: 100px;
-        padding: 7px 16px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        width: 148px;
-        cursor: text;
-      }
-      .search-pill span {
-        font-size: 12px;
-        color: var(--muted);
       }
       .btn-pri {
         background: var(--blue);
@@ -184,7 +169,122 @@
         border-color: var(--border-hover);
       }
 
-      /* ── EYEBROW ── */
+      /* HAMBURGER */
+      .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        cursor: pointer;
+        padding: 10px;
+        transition: border-color 0.2s;
+        flex-shrink: 0;
+      }
+      .nav-hamburger:hover {
+        border-color: var(--border-hover);
+      }
+      .nav-hamburger span {
+        display: block;
+        height: 1.5px;
+        background: var(--accent);
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+      }
+      .nav-hamburger.open span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      .nav-hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .nav-hamburger.open span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
+
+      /* MOBILE DRAWER */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        z-index: 190;
+        background: rgba(11, 13, 31, 0.97);
+        backdrop-filter: blur(24px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 24px;
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+          padding 0.3s;
+      }
+      .mobile-menu.open {
+        max-height: 600px;
+        padding: 20px 24px 28px;
+      }
+      .mobile-nav-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-bottom: 20px;
+      }
+      .mobile-nav-links li a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 13px 16px;
+        border-radius: 10px;
+        font-size: 15px;
+        color: var(--muted);
+        text-decoration: none;
+        transition:
+          background 0.18s,
+          color 0.18s;
+      }
+      .mobile-nav-links li a:hover,
+      .mobile-nav-links li a.active {
+        background: var(--surface);
+        color: var(--accent);
+      }
+      .mobile-nav-links li a .mn-arr {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: var(--muted);
+        opacity: 0.5;
+      }
+      .mobile-nav-divider {
+        height: 1px;
+        background: var(--border);
+        margin: 6px 0 18px;
+      }
+      .mobile-nav-btns {
+        display: flex;
+        gap: 10px;
+      }
+      .mobile-nav-btns .btn-pri {
+        flex: 1;
+        justify-content: center;
+        border-radius: 10px;
+        font-size: 14px;
+        padding: 13px 20px;
+      }
+      .mobile-nav-btns .btn-sec {
+        flex: 1;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 14px;
+        padding: 13px 20px;
+      }
+
+      /* EYEBROW */
       .eyebrow {
         display: flex;
         align-items: center;
@@ -204,8 +304,6 @@
         text-transform: uppercase;
         color: var(--blue-light);
       }
-
-      /* ── SECTION TITLE ── */
       .sec-title {
         font-family: "Bebas Neue", sans-serif;
         font-size: clamp(36px, 4.5vw, 56px);
@@ -215,7 +313,7 @@
         margin-bottom: 20px;
       }
 
-      /* ── SECTION WRAPPER ── */
+      /* SECTION */
       .sec {
         padding: 96px 56px;
         border-top: 1px solid var(--border);
@@ -233,7 +331,7 @@
         margin: 0 auto;
       }
 
-      /* ── HERO ── */
+      /* HERO */
       #hero {
         min-height: 100vh;
         display: grid;
@@ -284,14 +382,17 @@
         display: flex;
         gap: 12px;
         margin-bottom: 56px;
+        flex-wrap: wrap;
       }
       .hero-stats {
         display: flex;
         border-top: 1px solid var(--border);
         padding-top: 32px;
+        flex-wrap: wrap;
       }
       .stat-item {
         flex: 1;
+        min-width: 80px;
         padding-right: 24px;
         margin-right: 24px;
         border-right: 1px solid var(--border);
@@ -319,7 +420,6 @@
         color: var(--muted);
         margin-top: 4px;
       }
-
       .hero-right {
         background: linear-gradient(
           155deg,
@@ -412,8 +512,6 @@
         letter-spacing: 0.15em;
         text-transform: uppercase;
       }
-
-      /* rotating badge */
       .rot-badge {
         position: absolute;
         left: calc(56% - 72px);
@@ -450,7 +548,22 @@
         }
       }
 
-      /* ── ABOUT ── */
+      /* ABOUT */
+      .about-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
+      .about-header-desc {
+        font-weight: 300;
+        font-size: 14px;
+        color: var(--muted);
+        max-width: 400px;
+        line-height: 1.75;
+        margin-top: 36px;
+        flex-shrink: 0;
+      }
       .about-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -524,7 +637,6 @@
         bottom: 0;
         width: 3px;
         background: linear-gradient(180deg, var(--blue), var(--blue-light));
-        border-radius: 0;
       }
       .about-card:hover {
         border-color: var(--border-hover);
@@ -543,7 +655,7 @@
         line-height: 1.65;
       }
 
-      /* ── MISSION ── */
+      /* MISSION */
       .quote-box {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -594,12 +706,13 @@
         line-height: 1.75;
       }
 
-      /* ── TIMELINE ── */
+      /* TIMELINE */
       .tl-header {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
         margin-bottom: 64px;
+        gap: 32px;
       }
       .tl-sub {
         font-weight: 300;
@@ -609,7 +722,6 @@
       .tl-wrap {
         display: grid;
         grid-template-columns: 40px 1fr;
-        gap: 0;
       }
       .tl-line-col {
         position: relative;
@@ -633,7 +745,6 @@
       .tl-item {
         display: grid;
         grid-template-columns: 40px 1fr;
-        gap: 0;
         padding-bottom: 48px;
       }
       .tl-dot-wrap {
@@ -698,12 +809,13 @@
         line-height: 1;
       }
 
-      /* ── PROGRAMS ── */
+      /* PROGRAMS */
       .prog-header {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         margin-bottom: 60px;
+        gap: 40px;
       }
       .prog-sub {
         font-weight: 300;
@@ -861,7 +973,7 @@
         transform: rotate(-45deg);
       }
 
-      /* ── STATS ── */
+      /* STATS */
       .stats-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -920,6 +1032,7 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 24px;
+        gap: 24px;
       }
       .ts-left .ts-lbl {
         font-family: "JetBrains Mono", monospace;
@@ -944,6 +1057,7 @@
       .ts-chips {
         display: flex;
         gap: 12px;
+        flex-wrap: wrap;
       }
       .ts-chip {
         border-radius: 8px;
@@ -963,11 +1077,12 @@
         border: 1px solid var(--border);
       }
 
-      /* ── PRICING ── */
+      /* PRICING */
       .pricing-tabs {
         display: flex;
         gap: 10px;
         margin: 24px 0 28px;
+        flex-wrap: wrap;
       }
       .pricing-tab {
         background: var(--surface);
@@ -1005,7 +1120,7 @@
       .pricing table {
         width: 100%;
         border-collapse: collapse;
-        min-width: 780px;
+        min-width: 560px;
       }
       .pricing th,
       .pricing td {
@@ -1044,7 +1159,7 @@
         color: var(--blue-light);
       }
 
-      /* ── CAMPUS ── */
+      /* CAMPUS */
       .campus-highlight {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -1153,7 +1268,7 @@
         line-height: 1.65;
       }
 
-      /* ── PARTNERS ── */
+      /* PARTNERS */
       .partners-pills {
         display: flex;
         flex-wrap: wrap;
@@ -1195,7 +1310,7 @@
         margin-top: 32px;
       }
 
-      /* ── FUTURE ── */
+      /* FUTURE */
       .future-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1261,7 +1376,7 @@
         margin-top: 4px;
       }
 
-      /* ── CTA BAND ── */
+      /* CTA */
       #cta {
         background: var(--surface);
         border-top: 1px solid var(--border);
@@ -1342,7 +1457,7 @@
         border-color: var(--border-hover);
       }
 
-      /* ── FOOTER ── */
+      /* FOOTER */
       footer {
         background: var(--bg);
         border-top: 1px solid var(--border);
@@ -1419,6 +1534,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
       }
       .footer-copy,
       .footer-links-b {
@@ -1433,38 +1550,345 @@
       .footer-links-b a:hover {
         color: var(--muted);
       }
-
-      /* universal card effect */
-      .card-effect {
-        position: relative;
-        overflow: hidden;
-        transition:
-          transform 0.28s ease,
-          box-shadow 0.28s ease,
-          border-color 0.28s ease;
-        transform: translateY(-6px);
-        border-color: var(--border-hover);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-      }
-      .card-effect::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          120deg,
-          transparent 0%,
-          rgba(255, 255, 255, 0.08) 45%,
-          transparent 75%
-        );
-        transform: translateX(130%);
-        transition: transform 0.5s ease;
-        pointer-events: none;
-      }
-
-      /* scroll reveal */
       .reveal {
         opacity: 1;
         transform: none;
+      }
+
+      /* ══════════════════════════════
+         RESPONSIVE
+      ══════════════════════════════ */
+
+      /* WIDE TABLET (≤ 1100px) */
+      @media (max-width: 1100px) {
+        nav {
+          padding: 0 32px;
+        }
+        .nav-links {
+          gap: 22px;
+        }
+        .sec {
+          padding: 80px 40px;
+        }
+        #cta {
+          padding: 64px 40px;
+        }
+        footer {
+          padding: 56px 40px 28px;
+        }
+        .prog-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
+        }
+        .future-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* TABLET (≤ 900px) */
+      @media (max-width: 900px) {
+        /* Nav */
+        nav {
+          padding: 0 24px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .nav-right {
+          display: none;
+        }
+        .nav-hamburger {
+          display: flex;
+        }
+        .mobile-menu {
+          display: block;
+        }
+        .rot-badge {
+          display: none;
+        }
+
+        /* Hero — 2 багана → 1 багана */
+        #hero {
+          grid-template-columns: 1fr;
+          min-height: unset;
+        }
+        .hero-left {
+          padding: 100px 32px 48px;
+          justify-content: flex-start;
+          align-items: center;
+          text-align: center;
+        }
+        .hero-left .eyebrow {
+          justify-content: center;
+        }
+        .hero-hl {
+          font-size: clamp(60px, 11vw, 96px);
+        }
+        .hero-hl .l3 {
+          -webkit-text-stroke-width: 2px;
+        }
+        .hero-desc {
+          max-width: 100%;
+          text-align: center;
+        }
+        .hero-btns {
+          justify-content: center;
+        }
+        .hero-stats {
+          justify-content: center;
+          padding-top: 24px;
+        }
+        .stat-item {
+          text-align: center;
+          padding: 0 16px;
+          margin: 0;
+        }
+        .stat-item:first-child {
+          padding-left: 0;
+        }
+        .stat-item:last-child {
+          padding-right: 0;
+        }
+        .stat-num {
+          font-size: 32px;
+        }
+        .hero-right {
+          border-radius: 0;
+          min-height: 200px;
+          padding: 32px;
+        }
+        .hero-chip {
+          top: 16px;
+          left: 16px;
+          font-size: 9px;
+          padding: 5px 12px;
+        }
+        .hero-badge {
+          bottom: 16px;
+          left: 16px;
+          padding: 10px 16px;
+        }
+        .badge-yr {
+          font-size: 24px;
+        }
+        .hero-shield-ring {
+          width: 72px;
+          height: 72px;
+        }
+        .hero-shield-ring svg {
+          width: 40px;
+          height: 40px;
+        }
+
+        /* Sections */
+        .sec {
+          padding: 64px 32px;
+        }
+        #cta {
+          padding: 56px 32px;
+        }
+        footer {
+          padding: 48px 32px 28px;
+        }
+
+        /* About */
+        .about-header {
+          flex-direction: column;
+          gap: 4px;
+        }
+        .about-header-desc {
+          margin-top: 0;
+          max-width: 100%;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          margin-top: 40px;
+        }
+        .about-img {
+          height: 260px;
+        }
+
+        /* Mission */
+        .quote-box {
+          padding: 36px 28px;
+        }
+        .mission-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        /* Timeline */
+        .tl-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          margin-bottom: 40px;
+        }
+        .tl-body {
+          max-width: 100%;
+        }
+
+        /* Programs */
+        .prog-header {
+          flex-direction: column;
+          gap: 12px;
+          margin-bottom: 32px;
+        }
+        .prog-sub {
+          max-width: 100%;
+        }
+        .prog-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* Stats */
+        .stats-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+          margin-top: 40px;
+        }
+        .target-strip {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 24px;
+        }
+
+        /* Campus */
+        .campus-highlight {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 28px 24px;
+        }
+        .campus-badges {
+          width: 100%;
+        }
+        .campus-badge {
+          flex: 1;
+        }
+        .campus-grid {
+          grid-template-columns: 1fr;
+        }
+
+        /* Future */
+        .future-grid {
+          grid-template-columns: repeat(2, 1fr);
+          margin-top: 40px;
+        }
+        .future-card.wide {
+          grid-column: span 2;
+        }
+
+        /* CTA */
+        .cta-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .cta-btns {
+          flex-direction: column;
+          width: 100%;
+        }
+        .btn-white,
+        .btn-outline-w {
+          width: 100%;
+          text-align: center;
+          justify-content: center;
+        }
+
+        /* Footer */
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+          gap: 32px;
+        }
+        .footer-tagline {
+          max-width: 100%;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* MOBILE (≤ 600px) */
+      @media (max-width: 600px) {
+        nav {
+          padding: 0 16px;
+        }
+        .hero-left {
+          padding: 88px 20px 40px;
+        }
+        .hero-hl {
+          font-size: clamp(48px, 13vw, 72px);
+        }
+        .stat-item {
+          padding: 0 10px;
+        }
+        .stat-num {
+          font-size: 26px;
+        }
+        .stat-num sup {
+          font-size: 13px;
+        }
+        .stat-lbl {
+          font-size: 10px;
+        }
+        .sec {
+          padding: 48px 20px;
+        }
+        #cta {
+          padding: 48px 20px;
+        }
+        footer {
+          padding: 40px 20px 24px;
+        }
+        .quote-box {
+          padding: 24px 18px;
+        }
+        .prog-grid {
+          grid-template-columns: 1fr;
+        }
+        .prog-title {
+          font-size: 28px;
+        }
+        .future-grid {
+          grid-template-columns: 1fr;
+        }
+        .future-card.wide {
+          grid-column: span 1;
+        }
+        .campus-highlight {
+          padding: 20px 18px;
+        }
+        .campus-badges {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+      }
+
+      /* ЖИЖИГ УТАС (≤ 380px) */
+      @media (max-width: 380px) {
+        .hero-hl {
+          font-size: 44px;
+        }
+        .hero-btns {
+          flex-direction: column;
+        }
+        .hero-btns .btn-pri,
+        .hero-btns .btn-sec {
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+        }
+        .stat-item {
+          padding: 0 6px;
+        }
+        .stat-num {
+          font-size: 22px;
+        }
       }
     </style>
   </head>
@@ -1479,10 +1903,6 @@
             width="34"
             height="34" />
         </div>
-        <div>
-          <span class="logo-name">Indra Cyber Institute</span>
-          <span class="logo-since">Since 2007</span>
-        </div>
       </a>
       <ul class="nav-links">
         <li><a href="#hero" class="active">Нүүр</a></li>
@@ -1494,11 +1914,78 @@
         <li><a href="#future">Ирээдүй</a></li>
         <li><a href="#cta">Холбоо</a></li>
       </ul>
+      <div class="nav-right">
+        <button class="btn-pri">Элсэх <span class="btn-arr">→</span></button>
+      </div>
+      <button
+        class="nav-hamburger"
+        id="hamburger"
+        onclick="toggleMobileMenu()"
+        aria-label="Цэс нээх">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-nav-links">
+        <li>
+          <a href="#hero" onclick="closeMobileMenu()"
+            >Нүүр <span class="mn-arr">→</span></a
+          >
+        </li>
+        <li>
+          <a href="#about" onclick="closeMobileMenu()"
+            >Тухай <span class="mn-arr">→</span></a
+          >
+        </li>
+        <li>
+          <a href="#history" onclick="closeMobileMenu()"
+            >Түүх <span class="mn-arr">→</span></a
+          >
+        </li>
+        <li>
+          <a href="#programs" onclick="closeMobileMenu()"
+            >Хөтөлбөр <span class="mn-arr">→</span></a
+          >
+        </li>
+        <li>
+          <a href="./pages/team.html" onclick="closeMobileMenu()"
+            >Баг <span class="mn-arr">→</span></a
+          >
+        </li>
+        <li>
+          <a href="#campus" onclick="closeMobileMenu()"
+            >Кампус <span class="mn-arr">→</span></a
+          >
+        </li>
+        <li>
+          <a href="#future" onclick="closeMobileMenu()"
+            >Ирээдүй <span class="mn-arr">→</span></a
+          >
+        </li>
+        <li>
+          <a href="./pages/students.html" onclick="closeMobileMenu()"
+            >Оюутнууд <span class="mn-arr">→</span></a
+          >
+        </li>
+        <li>
+          <a href="#cta" onclick="closeMobileMenu()"
+            >Холбоо <span class="mn-arr">→</span></a
+          >
+        </li>
+      </ul>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-btns">
+        <button class="btn-pri" onclick="closeMobileMenu()">
+          Элсэх <span class="btn-arr">→</span>
+        </button>
+        <button class="btn-sec" onclick="closeMobileMenu()">Хөтөлбөр</button>
+      </div>
+    </div>
 
     <!-- HERO -->
     <section id="hero">
-      <!-- rotating badge -->
       <div class="rot-badge">
         <svg width="116" height="116" viewBox="0 0 116 116">
           <defs>
@@ -1530,9 +2017,9 @@
           <span class="eyebrow-text">Дижитал боловсрол · Монгол</span>
         </div>
         <h1 class="hero-hl">
-          <span class="l1">ДИЖИТАЛ</span>
-          <span class="l2">МЭРГЭЖИЛ</span>
-          <span class="l3">ОЛГОДОГ</span>
+          <span class="l1">ИНДРА</span>
+          <span class="l2">КИБЕР</span>
+          <span class="l3">ИНСТИТУТ</span>
         </h1>
         <p class="hero-desc">
           Fullstack хөгжүүлэлт, Digital маркетинг, Олон улсын хэлний сургалт —
@@ -1594,15 +2081,10 @@
       </div>
     </section>
 
-    <!-- 03 ABOUT -->
+    <!-- ABOUT -->
     <section id="about" class="sec alt">
       <div class="inner">
-        <div
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-          ">
+        <div class="about-header">
           <div>
             <div class="eyebrow">
               <div class="eyebrow-line"></div>
@@ -1610,15 +2092,7 @@
             </div>
             <h2 class="sec-title">АМЖИЛТ ГРУППИЙН<br />ХҮРЭЭНД ХӨГЖИЖ БУЙ</h2>
           </div>
-          <p
-            style="
-              font-weight: 300;
-              font-size: 14px;
-              color: var(--muted);
-              max-width: 400px;
-              line-height: 1.75;
-              margin-top: 36px;
-            ">
+          <p class="about-header-desc">
             Индра Кибер Институт нь 12 охин компани, 400 гаруй ажилтантай Амжилт
             Группийн хүрээнд үйл ажиллагаа явуулдаг боловсролын байгууллага.
           </p>
@@ -1712,7 +2186,7 @@
               </h3>
               <p>
                 Олон улсад хүлээн зөвшөөрөгдсөн байгууллагуудын сертификатын
-                боломж; 2023 оноос IELTS хичээл нэмэгдсэн
+                боломж; 2023 оноос IELTS хичээл нэмэгдсэн.
               </p>
             </div>
           </div>
@@ -1720,7 +2194,7 @@
       </div>
     </section>
 
-    <!-- 04 MISSION -->
+    <!-- MISSION -->
     <section id="mission" class="sec light">
       <div class="inner">
         <div class="eyebrow">
@@ -1757,7 +2231,7 @@
       </div>
     </section>
 
-    <!-- 05 HISTORY -->
+    <!-- HISTORY -->
     <section id="history" class="sec alt">
       <div class="inner">
         <div class="tl-header">
@@ -1804,8 +2278,7 @@
                 <div class="tl-title">Олон улсын хөтөлбөр нэвтэрлээ</div>
                 <p class="tl-body">
                   Энэтхэгийн Бангалор хотын технологийн компанитай тогтоосон
-                  харилцаанд тулгуурлан олон улсын хөтөлбөрийг нутагшуулсан. SW,
-                  Graphic Design чиглэлүүд нэмэгдэв.
+                  харилцаанд тулгуурлан олон улсын хөтөлбөрийг нутагшуулсан.
                 </p>
               </div>
             </div>
@@ -1862,7 +2335,7 @@
       </div>
     </section>
 
-    <!-- 06 PROGRAMS -->
+    <!-- PROGRAMS -->
     <section id="programs" class="sec alt">
       <div class="inner">
         <div class="prog-header">
@@ -1879,26 +2352,24 @@
           </p>
         </div>
         <div class="prog-grid">
-          <!-- SW -->
-          <div class="prog-card c-sw reveal">
-            <div class="prog-visual v-sw">
+          <div class="prog-card reveal">
+            <div class="prog-visual">
               <div class="prog-num">01</div>
               <div class="prog-icon">
                 <i class="fa-solid fa-circle" aria-hidden="true"></i>
               </div>
             </div>
             <div class="prog-body">
-              <span class="prog-tag tag-navy">Fullstack Development</span>
+              <span class="prog-tag">Fullstack Development</span>
               <div class="prog-title">FULLSTACK<br />DEVELOPER</div>
               <p class="prog-desc">
                 Front-end, Back-end, UI/UX design ур чадварыг хослуулан
-                эзэмшүүлэх. 2025 оноос Япон хэлний сургалт нэмэгдсэн.
+                эзэмшүүлэх.
               </p>
               <div class="prog-pills">
                 <span class="pill">HTML/CSS</span
                 ><span class="pill">JavaScript</span
                 ><span class="pill">React</span><span class="pill">Node.js</span
-                ><span class="pill">PostgreSQL</span
                 ><span class="pill">日本語</span>
               </div>
               <div class="prog-footer">
@@ -1910,16 +2381,15 @@
               </div>
             </div>
           </div>
-          <!-- DM -->
-          <div class="prog-card c-dm reveal">
-            <div class="prog-visual v-dm">
+          <div class="prog-card reveal">
+            <div class="prog-visual">
               <div class="prog-num">02</div>
               <div class="prog-icon">
                 <i class="fa-solid fa-circle" aria-hidden="true"></i>
               </div>
             </div>
             <div class="prog-body">
-              <span class="prog-tag tag-gold">Digital Marketing</span>
+              <span class="prog-tag">Digital Marketing</span>
               <div class="prog-title">DIGITAL<br />MARKETING</div>
               <p class="prog-desc">
                 Контент стратеги, сурталчилгаа, аналитик, онол-практик хосолсон
@@ -1929,7 +2399,6 @@
                 <span class="pill">SEO/SEM</span
                 ><span class="pill">Meta Ads</span
                 ><span class="pill">Google Ads</span
-                ><span class="pill">Content</span
                 ><span class="pill">Analytics</span>
               </div>
               <div class="prog-footer">
@@ -1941,16 +2410,15 @@
               </div>
             </div>
           </div>
-          <!-- EN -->
-          <div class="prog-card c-en reveal">
-            <div class="prog-visual v-en">
+          <div class="prog-card reveal">
+            <div class="prog-visual">
               <div class="prog-num">03</div>
               <div class="prog-icon">
                 <i class="fa-solid fa-circle" aria-hidden="true"></i>
               </div>
             </div>
             <div class="prog-body">
-              <span class="prog-tag tag-green">Хэлний сургалт</span>
+              <span class="prog-tag">Хэлний сургалт</span>
               <div class="prog-title">АНГЛИ<br />ХЭЛ</div>
               <p class="prog-desc">
                 IELTS чиглэлтэй, мэргэжлийн болон олон улсын харилцаанд бэлтгэх
@@ -1959,7 +2427,7 @@
               <div class="prog-pills">
                 <span class="pill">IELTS</span><span class="pill">Speaking</span
                 ><span class="pill">Writing</span
-                ><span class="pill">Business English</span>
+                ><span class="pill">Business EN</span>
               </div>
               <div class="prog-footer">
                 <div>
@@ -1970,16 +2438,15 @@
               </div>
             </div>
           </div>
-          <!-- CN -->
-          <div class="prog-card c-cn reveal">
-            <div class="prog-visual v-cn">
+          <div class="prog-card reveal">
+            <div class="prog-visual">
               <div class="prog-num">04</div>
               <div class="prog-icon">
                 <i class="fa-solid fa-circle" aria-hidden="true"></i>
               </div>
             </div>
             <div class="prog-body">
-              <span class="prog-tag tag-yellow">Хэлний сургалт</span>
+              <span class="prog-tag">Хэлний сургалт</span>
               <div class="prog-title">ХЯТАД<br />ХЭЛ</div>
               <p class="prog-desc">
                 Бизнес болон академик зорилгоор хятад хэлний чадварыг эзэмшүүлэх
@@ -1987,8 +2454,7 @@
               </p>
               <div class="prog-pills">
                 <span class="pill">HSK</span><span class="pill">Speaking</span
-                ><span class="pill">Business Chinese</span
-                ><span class="pill">Characters</span>
+                ><span class="pill">Business CN</span>
               </div>
               <div class="prog-footer">
                 <div>
@@ -1999,16 +2465,15 @@
               </div>
             </div>
           </div>
-          <!-- SK -->
-          <div class="prog-card c-sk reveal">
-            <div class="prog-visual v-sk">
+          <div class="prog-card reveal">
+            <div class="prog-visual">
               <div class="prog-num">05</div>
               <div class="prog-icon">
                 <i class="fa-solid fa-circle" aria-hidden="true"></i>
               </div>
             </div>
             <div class="prog-body">
-              <span class="prog-tag tag-pink">Skillcraft</span>
+              <span class="prog-tag">Skillcraft</span>
               <div class="prog-title">ТОГЛООМ<br />ХӨГЖҮҮЛЭЛТ</div>
               <p class="prog-desc">
                 15–18 насны залуучуудад зориулсан тоглоом хөгжүүлэлтийн практик
@@ -2016,8 +2481,7 @@
               </p>
               <div class="prog-pills">
                 <span class="pill">Game Design</span
-                ><span class="pill">Unity</span><span class="pill">Logic</span
-                ><span class="pill">Programming</span>
+                ><span class="pill">Unity</span><span class="pill">C#</span>
               </div>
               <div class="prog-footer">
                 <div>
@@ -2028,16 +2492,15 @@
               </div>
             </div>
           </div>
-          <!-- LT -->
-          <div class="prog-card c-lt reveal">
-            <div class="prog-visual v-lt">
+          <div class="prog-card reveal">
+            <div class="prog-visual">
               <div class="prog-num">06</div>
               <div class="prog-icon">
                 <i class="fa-solid fa-circle" aria-hidden="true"></i>
               </div>
             </div>
             <div class="prog-body">
-              <span class="prog-tag tag-gray">LITE хөтөлбөр</span>
+              <span class="prog-tag">LITE хөтөлбөр</span>
               <div class="prog-title">МЭРГЭШҮҮЛЭХ<br />АНГИУД</div>
               <p class="prog-desc">
                 Онлайн бизнес эрхлэгчид, STARTUP-уудад зориулсан WinterGAP болон
@@ -2046,8 +2509,7 @@
               <div class="prog-pills">
                 <span class="pill">SW LITE</span
                 ><span class="pill">DM LITE</span
-                ><span class="pill">WinterGAP</span
-                ><span class="pill">6 сар</span>
+                ><span class="pill">WinterGAP</span>
               </div>
               <div class="prog-footer">
                 <div>
@@ -2062,7 +2524,7 @@
       </div>
     </section>
 
-    <!-- 07 ENROLLMENT STATS -->
+    <!-- STATS -->
     <section id="stats" class="sec alt">
       <div class="inner">
         <div class="eyebrow">
@@ -2168,7 +2630,7 @@
       </div>
     </section>
 
-    <!-- 08 PRICING -->
+    <!-- PRICING -->
     <section class="pricing sec alt" id="pricing">
       <div class="inner">
         <div class="eyebrow">
@@ -2184,7 +2646,6 @@
             Индра Кампус
           </button>
         </div>
-
         <div class="pricing-table active" id="table-institute">
           <table>
             <thead>
@@ -2239,7 +2700,6 @@
             <div class="pricing-total-val">2,120,000,000₮</div>
           </div>
         </div>
-
         <div class="pricing-table" id="table-campus">
           <table>
             <thead>
@@ -2279,7 +2739,7 @@
       </div>
     </section>
 
-    <!-- 08 CAMPUS -->
+    <!-- CAMPUS -->
     <section id="campus" class="sec light">
       <div class="inner">
         <div class="eyebrow">
@@ -2320,7 +2780,7 @@
             <h3>Дотуур байр</h3>
             <p>
               400 оюутны багтаамжтай. Нэг өрөөнд 4 оюутан, нийт 4 давхар, давхар
-              бүрд 10 өрөө. Эрэгтэй, эмэгтэйгээрээ тусдаа.
+              бүрд 10 өрөө.
             </p>
           </div>
           <div class="campus-card reveal">
@@ -2357,7 +2817,7 @@
       </div>
     </section>
 
-    <!-- 09 PARTNERS -->
+    <!-- PARTNERS -->
     <section id="partners" class="sec alt">
       <div class="inner">
         <div class="eyebrow">
@@ -2399,13 +2859,12 @@
           Суралцагчдад олон улсад хүлээн зөвшөөрөгдсөн байгууллагуудын
           сертификатын боломжийг нээж, Google, Meta, Harvard зэрэг эх сурвалж
           бүхий сургалтын агуулгыг хөтөлбөрт шингээн хэрэгжүүлэх чиглэл
-          баримталдаг. 2025 оноос CAL Japan-тай хамтран Японд ажиллах шинэ
-          боломж нэмэгдсэн.
+          баримталдаг.
         </p>
       </div>
     </section>
 
-    <!-- 10 FUTURE -->
+    <!-- FUTURE -->
     <section id="future" class="sec light">
       <div class="inner">
         <div class="eyebrow">
@@ -2465,7 +2924,7 @@
       </div>
     </section>
 
-    <!-- 11 CTA -->
+    <!-- CTA -->
     <section id="cta">
       <div class="cta-wm">ICI</div>
       <div class="cta-inner">
@@ -2524,14 +2983,7 @@
             <ul class="footer-links">
               <li><a href="tel:72773040">7277 3040</a></li>
               <li>
-                <a
-                  href="/cdn-cgi/l/email-protection#a6cfc8d5d2cfd2d3d2c3e6c7cbcccfcad288c5c9cb"
-                  ><span
-                    class="__cf_email__"
-                    data-cfemail="d6bfb8a5a2bfa2a3a2b396b7bbbcbfbaa2f8b5b9bb"
-                    >[email&#160;protected]</span
-                  ></a
-                >
+                <a href="mailto:info@indracyber.mn">info@indracyber.mn</a>
               </li>
               <li><a href="#">Facebook</a></li>
               <li><a href="#">Instagram</a></li>
@@ -2551,34 +3003,61 @@
       </div>
     </footer>
 
-    <script
-      data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
-      const revealEls = document.querySelectorAll(".reveal");
-      const obs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("visible");
-              obs.unobserve(e.target);
-            }
-          });
-        },
-        {threshold: 0.12},
-      );
-      revealEls.forEach((el) => obs.observe(el));
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobileMenu");
+        const btn = document.getElementById("hamburger");
+        const isOpen = menu.classList.toggle("open");
+        btn.classList.toggle("open", isOpen);
+        document.body.style.overflow = isOpen ? "hidden" : "";
+      }
+      function closeMobileMenu() {
+        document.getElementById("mobileMenu").classList.remove("open");
+        document.getElementById("hamburger").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMobileMenu();
+      });
+
+      document.querySelectorAll(".reveal").forEach((el) => {
+        new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("visible");
+              }
+            });
+          },
+          {threshold: 0.12},
+        ).observe(el);
+      });
 
       const navLinks = document.querySelectorAll(".nav-links a");
       const sections = document.querySelectorAll("section[id]");
+      function updateActiveNav() {
+        const current = Array.from(sections).find((s) => {
+          const r = s.getBoundingClientRect();
+          return r.top <= 120 && r.bottom > 120;
+        });
+        if (!current) return;
+        navLinks.forEach((link) =>
+          link.classList.toggle(
+            "active",
+            link.getAttribute("href") === `#${current.id}`,
+          ),
+        );
+      }
+      window.addEventListener("scroll", updateActiveNav, {passive: true});
+      window.addEventListener("load", updateActiveNav);
 
       function showTable(type) {
         document
           .querySelectorAll(".pricing-tab")
-          .forEach((btn) => btn.classList.remove("active"));
+          .forEach((b) => b.classList.remove("active"));
         document
           .querySelectorAll(".pricing-table")
-          .forEach((table) => table.classList.remove("active"));
+          .forEach((t) => t.classList.remove("active"));
         const tabBtn =
           type === "campus"
             ? document.querySelector(".pricing-tabs .pricing-tab:nth-child(2)")
@@ -2588,38 +3067,15 @@
         if (tableEl) tableEl.classList.add("active");
       }
 
-      function updateActiveNav() {
-        const current = Array.from(sections).find((section) => {
-          const rect = section.getBoundingClientRect();
-          return rect.top <= 120 && rect.bottom > 120;
-        });
-
-        if (!current) return;
-
-        navLinks.forEach((link) => {
-          const href = link.getAttribute("href");
-          link.classList.toggle("active", href === `#${current.id}`);
-        });
-      }
-
-      window.addEventListener("scroll", updateActiveNav, {passive: true});
-      window.addEventListener("load", updateActiveNav);
-
       document.querySelectorAll('a[href^="#"]').forEach((a) => {
         a.addEventListener("click", (e) => {
-          const id = a.getAttribute("href");
-          const target = id ? document.querySelector(id) : null;
+          const target = document.querySelector(a.getAttribute("href"));
           if (!target) return;
           e.preventDefault();
+          closeMobileMenu();
           target.scrollIntoView({behavior: "smooth", block: "start"});
         });
       });
-
-      document
-        .querySelectorAll(
-          ".about-card,.prog-card,.yr-card,.campus-card,.future-card,.partner-pill,.pricing-table,.pricing-total",
-        )
-        .forEach((el) => el.classList.add("card-effect"));
     </script>
   </body>
 </html>
